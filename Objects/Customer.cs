@@ -222,62 +222,6 @@ namespace Cabrador
             }
         }
 
-//NEEDS A LOT OF WORK STILL----NOT FINISHED!
-        public void AddTrip( newDriver)
-               {
-                   SqlConnection conn = DB.Connection();
-                   conn.Open();
-
-                   SqlCommand cmd = new SqlCommand("INSERT INTO trips (start_point, destination, price, miles, date, driver_id, dog_id, customer_id) VALUES (@StartPoint, @Destination, @Price, @Miles, @Date, @DriverId, @DogId, @CustomerId);", conn);
-                   SqlParameter bandIdParameter = new SqlParameter();
-                   bandIdParameter.ParameterName = "@BandId";
-                   bandIdParameter.Value = this.GetId();
-                   cmd.Parameters.Add(bandIdParameter);
-
-                   SqlParameter venueIdParameter = new SqlParameter();
-                   venueIdParameter.ParameterName = "@DriverId";
-                   venueIdParameter.Value = newDriver.GetId();
-                   cmd.Parameters.Add(venueIdParameter);
-
-                   cmd.ExecuteNonQuery();
-
-                   if (conn != null)
-                   {
-                       conn.Close();
-                   }
-               }
-//NEEDS A LOT OF WORK STILL----NOT FINISHED!
-               public List<Driver> GetTrips()
-               {
-                   List<Driver> allDrivers = new List<Driver>{};
-                   SqlConnection conn = DB.Connection();
-                   conn.Open();
-
-                   SqlCommand cmd = new SqlCommand("SELECT drivers.* FROM customers_dogs_drivers_trips JOIN drivers ON (drivers.id = bands_drivers.venue_id) JOIN bands ON (bands.id = bands_drivers.band_id) WHERE bands.id = @BandId;", conn);
-
-                   cmd.Parameters.Add(new SqlParameter("@BandId", this.GetId()));
-
-                   SqlDataReader rdr= cmd.ExecuteReader();
-
-                   while(rdr.Read())
-                   {
-                       int foundId = rdr.GetInt32(0);
-                       string foundName = rdr.GetString(1);
-                       Driver foundDriver = new Driver(foundName, foundId);
-                       allDrivers.Add(foundDriver);
-                   }
-
-                   if (rdr != null)
-                   {
-                       rdr.Close();
-                   }
-                   if (conn != null)
-                   {
-                       conn.Close();
-                   }
-
-                   return allDrivers;
-               }
 
 
         public static void DeleteAll()
