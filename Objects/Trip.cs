@@ -216,6 +216,57 @@ namespace Cabrador
                 conn.Close();
             }
         }
+        public static Trip FindById(int id)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM trips WHERE id = @TripId;", conn);
+
+            SqlParameter tripId = new SqlParameter();
+            tripId.ParameterName = "@TripId";
+            tripId.Value = id.ToString();
+            cmd.Parameters.Add(tripId);
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            int foundTripId = 0;
+            string foundStart = null;
+            string foundDestination = null;
+            int foundPrice = 0;
+            int foundMiles = 0;
+            DateTime foundDate = new DateTime (1900, 01, 01);
+            int foundDriverId = 0;
+            int foundDogId = 0;
+            int foundCustomerId = 0;
+
+
+
+            while(rdr.Read())
+            {
+                foundTripId = rdr.GetInt32(0);
+                foundStart = rdr.GetString(1);
+                foundDestination = rdr.GetString(2);
+                foundPrice = rdr.GetInt32(3);
+                foundMiles = rdr.GetInt32(4);
+                foundDate = rdr.GetDateTime(5);
+                foundDriverId = rdr.GetInt32(6);
+                foundDogId = rdr.GetInt32(7);
+                foundCustomerId = rdr.GetInt32(8);
+            }
+
+            Trip foundTrip = new Trip(foundStart, foundDestination, foundPrice, foundMiles, foundDate, foundDriverId, foundDogId, foundCustomerId, foundTripId);
+
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+            return foundTrip;
+        }
 
         public static void DeleteAll()
         {

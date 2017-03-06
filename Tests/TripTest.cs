@@ -34,6 +34,19 @@ namespace Cabrador
             Assert.Equal(expected, result);
         }
 
+        [Fact]
+        public void FindById_ReturnsTripWhenSearchedById()
+        {
+            DateTime date = new DateTime(2017, 1, 1);
+
+            Trip firstTrip = new Trip("1701", "801", 10, 2, date, 1, 2, 3);
+            firstTrip.Save();
+
+            Trip result = Trip.FindById(firstTrip.GetId());
+
+            Assert.Equal(firstTrip, result);
+        }
+
         public void Dispose()
         {
             Trip.DeleteAll();
