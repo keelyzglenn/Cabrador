@@ -48,6 +48,25 @@ namespace Cabrador
             return _password;
         }
 
+
+        public override bool Equals(System.Object otherCustomer)
+        {
+            if(!(otherCustomer is Customer))
+            {
+                return false;
+            }
+            else
+            {
+                Customer newCustomer = (Customer) otherCustomer;
+                bool idEquality = this.GetId() == newCustomer.GetId();
+                bool nameEquality = this.GetName() == newCustomer.GetName();
+                bool photoEquality = this.GetPhoto() == newCustomer.GetPhoto();
+                bool emailEquality = this.GetEmail() == newCustomer.GetEmail();
+                bool passwordEquality = this.GetPassword() == newCustomer.GetPassword();
+                return (idEquality && nameEquality && photoEquality && emailEquality && passwordEquality);
+            }
+        }
+
         public static List<Customer> GetAll()
         {
             List<Customer> allCustomers = new List<Customer>{};
@@ -79,6 +98,13 @@ namespace Cabrador
             }
             return allCustomers;
         }
+
+
+
+
+
+
+
 
         public static void DeleteAll()
         {

@@ -20,6 +20,19 @@ namespace Cabrador
             Assert.Equal(0, result);
         }
 
+        [Fact]
+        public void Equals_CustomersReturnEqualIfSameProperties_True()
+        {
+            Customer firstCustomer = new Customer ("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
+            Customer secondCustomer = new Customer ("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
+
+            Console.WriteLine(firstCustomer.GetId());
+            Console.WriteLine(secondCustomer.GetId());
+            Assert.Equal(firstCustomer, secondCustomer);
+        }
+
+
+
         public void Dispose()
         {
             Customer.DeleteAll();
