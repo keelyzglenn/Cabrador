@@ -21,7 +21,7 @@ namespace Cabrador
             _id = Id;
             _start = Start;
             _destination = Destination;
-            _price = 100;
+            _price = Price;
             _miles = Miles;
             _date = Date;
             _driverid = DriverId;
