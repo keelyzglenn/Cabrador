@@ -16,7 +16,7 @@ namespace Cabrador
         private int _dogid;
         private int _customerid;
 
-        public Trip(string Start, string Destination, int Price, int Miles, DateTime Date, int DriverId, int DogId, int CustomerId, int Id = 0)
+        public Trip(string Start, string Destination, int Price = 0, int Miles, DateTime Date, int DriverId, int DogId, int CustomerId, int Id = 0)
         {
             _id = Id;
             _start = Start;
@@ -27,6 +27,7 @@ namespace Cabrador
             _driverid = DriverId;
             _dogid = DogId;
             _customerid = CustomerId;
+            this.SetPrice();
         }
 
         public int GetId()
@@ -47,6 +48,11 @@ namespace Cabrador
         public int GetPrice()
         {
             return _price;
+        }
+
+        public void SetPrice()
+        {
+            this._price = (_miles * 2) + 10;
         }
 
         public int GetMiles()
@@ -136,6 +142,7 @@ namespace Cabrador
                 int customerid = rdr.GetInt32(8);
 
                 Trip newTrip = new Trip(start, destination, price, miles, date, driverid, dogid, customerid, tripId);
+
                 AllTrips.Add(newTrip);
             }
 
