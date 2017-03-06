@@ -223,21 +223,21 @@ namespace Cabrador
         }
 
 //NEEDS A LOT OF WORK STILL----NOT FINISHED!
-        public void AddTrip( newDriver)
+        public void AddTrip(Trip newTrip)
                {
                    SqlConnection conn = DB.Connection();
                    conn.Open();
 
                    SqlCommand cmd = new SqlCommand("INSERT INTO trips (start_point, destination, price, miles, date, driver_id, dog_id, customer_id) VALUES (@StartPoint, @Destination, @Price, @Miles, @Date, @DriverId, @DogId, @CustomerId);", conn);
-                   SqlParameter bandIdParameter = new SqlParameter();
-                   bandIdParameter.ParameterName = "@BandId";
-                   bandIdParameter.Value = this.GetId();
-                   cmd.Parameters.Add(bandIdParameter);
 
-                   SqlParameter venueIdParameter = new SqlParameter();
-                   venueIdParameter.ParameterName = "@DriverId";
-                   venueIdParameter.Value = newDriver.GetId();
-                   cmd.Parameters.Add(venueIdParameter);
+                   cmd.Parameters.Add(new SqlParameter("@CustomerId", this.GetId()));
+                   cmd.Parameters.Add(new SqlParameter("@StartPoint", newTrip.GetStartPoint()));
+                   cmd.Parameters.Add(new SqlParameter("@Destination", newTrip.GetDestination()));
+                   cmd.Parameters.Add(new SqlParameter("@Price", newTrip.GetPrice()));
+                   cmd.Parameters.Add(new SqlParameter("@Miles", newTrip.GetMiles()));
+                   cmd.Parameters.Add(new SqlParameter("@Date", newTrip.GetDate()));
+                   cmd.Parameters.Add(new SqlParameter("@DriverId", newTrip.GetDriverId()));
+                   cmd.Parameters.Add(new SqlParameter("@DogId", newTrip.GetDogId()));
 
                    cmd.ExecuteNonQuery();
 
@@ -247,24 +247,32 @@ namespace Cabrador
                    }
                }
 //NEEDS A LOT OF WORK STILL----NOT FINISHED!
-               public List<Driver> GetTrips()
+               public List<Trip> GetTrips()
                {
-                   List<Driver> allDrivers = new List<Driver>{};
+                   List<Trip> allTrips = new List<Trip>{};
                    SqlConnection conn = DB.Connection();
                    conn.Open();
 
-                   SqlCommand cmd = new SqlCommand("SELECT drivers.* FROM customers_dogs_drivers_trips JOIN drivers ON (drivers.id = bands_drivers.venue_id) JOIN bands ON (bands.id = bands_drivers.band_id) WHERE bands.id = @BandId;", conn);
+                   SqlCommand cmd = new SqlCommand("SELECT trips.* FROM trips JOIN drivers ON (drivers.id = trips.driver_id) JOIN dogs ON (dogs.id = trips.dog_id) JOIN customers ON (customers.id = trips.customer_id) WHERE customers.id = @CustomerId;", conn);
 
-                   cmd.Parameters.Add(new SqlParameter("@BandId", this.GetId()));
+                   cmd.Parameters.Add(new SqlParameter("@CustomerId", this.GetId()));
 
                    SqlDataReader rdr= cmd.ExecuteReader();
 
                    while(rdr.Read())
                    {
                        int foundId = rdr.GetInt32(0);
-                       string foundName = rdr.GetString(1);
-                       Driver foundDriver = new Driver(foundName, foundId);
-                       allDrivers.Add(foundDriver);
+                       string foundStartPoint = rdr.GetString(1);
+                       string foundDestination = rdr.GetString(2);
+                       int foundPrice = rdr.GetInt32(3);
+                       int foundMiles = rdr.GetInt32(4);
+                       DateTime foundDate = rdr.GetDateTime(5);
+                       int foundDriverId = rdr.GetInt32(6);
+                       int foundDogId = rdr.GetInt32(7);
+                       //foundCustomerId might be unnecessary
+                       int foundCustomerId = rdr.GetInt32(8);
+                       Trip foundTrip = new Trip(foundStartPoint, foundDestination, foundPrice, foundMiles, foundDate, foundDriverId, foundDogId, foundCustomerId, foundId);
+                       allTrips.Add(foundTrip);
                    }
 
                    if (rdr != null)
@@ -276,7 +284,7 @@ namespace Cabrador
                        conn.Close();
                    }
 
-                   return allDrivers;
+                   return allTrips;
                }
 
 
