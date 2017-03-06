@@ -18,6 +18,11 @@ namespace Cabrador
             _car = Car;
             _photo = Photo;
         }
+        
+        public override int GetHashCode()
+        {
+            return this.GetName().GetHashCode();
+        }
 
         public int GetId()
         {
