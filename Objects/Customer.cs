@@ -222,29 +222,7 @@ namespace Cabrador
             }
         }
 
-        public void AddTrip(Trip newTrip)
-               {
-                   SqlConnection conn = DB.Connection();
-                   conn.Open();
 
-                   SqlCommand cmd = new SqlCommand("INSERT INTO trips (start_point, destination, price, miles, date, driver_id, dog_id, customer_id) VALUES (@StartPoint, @Destination, @Price, @Miles, @Date, @DriverId, @DogId, @CustomerId);", conn);
-
-                   cmd.Parameters.Add(new SqlParameter("@CustomerId", this.GetId()));
-                   cmd.Parameters.Add(new SqlParameter("@StartPoint", newTrip.GetStartPoint()));
-                   cmd.Parameters.Add(new SqlParameter("@Destination", newTrip.GetDestination()));
-                   cmd.Parameters.Add(new SqlParameter("@Price", newTrip.GetPrice()));
-                   cmd.Parameters.Add(new SqlParameter("@Miles", newTrip.GetMiles()));
-                   cmd.Parameters.Add(new SqlParameter("@Date", newTrip.GetDate()));
-                   cmd.Parameters.Add(new SqlParameter("@DriverId", newTrip.GetDriverId()));
-                   cmd.Parameters.Add(new SqlParameter("@DogId", newTrip.GetDogId()));
-
-                   cmd.ExecuteNonQuery();
-
-                   if (conn != null)
-                   {
-                       conn.Close();
-                   }
-               }
 //NEEDS A LOT OF WORK STILL----NOT FINISHED!
                public List<Trip> GetTrips()
                {
@@ -252,7 +230,7 @@ namespace Cabrador
                    SqlConnection conn = DB.Connection();
                    conn.Open();
 
-                   SqlCommand cmd = new SqlCommand("SELECT trips.* FROM trips JOIN drivers ON (drivers.id = trips.driver_id) JOIN dogs ON (dogs.id = trips.dog_id) JOIN customers ON (customers.id = trips.customer_id) WHERE customers.id = @CustomerId;", conn);
+                   SqlCommand cmd = new SqlCommand("SELECT trips.* FROM trips JOIN customers ON (customers.id = trips.customer_id) WHERE customers.id = @CustomerId;", conn);
 
                    cmd.Parameters.Add(new SqlParameter("@CustomerId", this.GetId()));
 
