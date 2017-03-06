@@ -127,6 +127,45 @@ namespace Cabrador
             }
         }
 
+        public static Customer Find(int id)
+       {
+           SqlConnection conn = DB.Connection();
+           conn.Open();
+
+           SqlCommand cmd = new SqlCommand("SELECT * FROM customers WHERE id = @CustomerId;", conn);
+           SqlParameter customerIdParameter = new SqlParameter();
+           customerIdParameter.ParameterName = "@CustomerId";
+           customerIdParameter.Value = id.ToString();
+           cmd.Parameters.Add(customerIdParameter);
+           SqlDataReader rdr = cmd.ExecuteReader();
+
+           int foundCustomerId = 0;
+           string foundCustomerName = null;
+           string foundCustomerPhoto = null;
+           string foundCustomerEmail = null;
+           string foundCustomerPassword = null;
+
+           while(rdr.Read())
+           {
+               foundCustomerId = rdr.GetInt32(0);
+               foundCustomerName = rdr.GetString(1);
+               foundCustomerPhoto = rdr.GetString(2);
+               foundCustomerEmail = rdr.GetString(3);
+               foundCustomerPassword = rdr.GetString(4);
+           }
+           Customer foundCustomer = new Customer(foundCustomerName, foundCustomerPhoto, foundCustomerEmail, foundCustomerPassword, foundCustomerId);
+
+           if (rdr != null)
+           {
+               rdr.Close();
+           }
+           if (conn != null)
+           {
+               conn.Close();
+           }
+           return foundCustomer;
+       }
+
 
 
 

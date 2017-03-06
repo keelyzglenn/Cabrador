@@ -58,6 +58,20 @@ namespace Cabrador
             Assert.Equal(testId, result);
         }
 
+        [Fact]
+        public void Find_FindsCustomerInDatabase()
+        {
+            //Arrange
+            Customer testCustomer = new Customer("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
+            testCustomer.Save();
+
+            //Act
+            Customer foundCustomer = Customer.Find(testCustomer.GetId());
+
+            //Assert
+            Assert.Equal(testCustomer, foundCustomer);
+        }
+
 
 
         public void Dispose()
