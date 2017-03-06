@@ -32,11 +32,6 @@ namespace Cabrador
             Assert.Equal(expected, result);
         }
 
-        public void Dispose()
-        {
-            Driver.DeleteAll();
-        }
-
         [Fact]
         public void Test_FindFindsDriverInDatabase()
         {
@@ -49,6 +44,11 @@ namespace Cabrador
 
             //Assert
             Assert.Equal(firstDriver, result);
+        }
+        
+        public void Dispose()
+        {
+            Driver.DeleteAll();
         }
     }
 }

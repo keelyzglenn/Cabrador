@@ -40,21 +40,21 @@ namespace Cabrador
         }
 
         public override bool Equals(System.Object otherDriver)
-          {
-              if(!(otherDriver is Driver))
-              {
-                  return false;
-              }
-              else
-              {
-                  Driver newDriver = (Driver) otherDriver;
-                  bool idEquality = this.GetId() == newDriver.GetId();
-                  bool nameEquality = this.GetName() == newDriver.GetName();
-                  bool carEquality = this.GetCar() == newDriver.GetCar();
-                  bool photoEquality = this.GetPhoto() == newDriver.GetPhoto();
-                  return (idEquality && nameEquality && carEquality && photoEquality);
-              }
-          }
+        {
+            if(!(otherDriver is Driver))
+            {
+                return false;
+            }
+            else
+            {
+                Driver newDriver = (Driver) otherDriver;
+                bool idEquality = this.GetId() == newDriver.GetId();
+                bool nameEquality = this.GetName() == newDriver.GetName();
+                bool carEquality = this.GetCar() == newDriver.GetCar();
+                bool photoEquality = this.GetPhoto() == newDriver.GetPhoto();
+                return (idEquality && nameEquality && carEquality && photoEquality);
+            }
+        }
 
         public static List<Driver> GetAll()
         {
@@ -78,14 +78,14 @@ namespace Cabrador
             }
 
 
-                if(rdr != null)
-                {
-                    rdr.Close();
-                }
-                if(conn != null)
-                {
-                    conn.Close();
-                }
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+            if(conn != null)
+            {
+                conn.Close();
+            }
 
             return AllDrivers;
         }
@@ -171,13 +171,12 @@ namespace Cabrador
 
         public static void DeleteAll()
         {
-          SqlConnection conn = DB.Connection();
-          conn.Open();
-          SqlCommand cmd = new SqlCommand("DELETE FROM drivers;", conn);
-          cmd.ExecuteNonQuery();
-          conn.Close();
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM drivers;", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
-
 
     }
 }
