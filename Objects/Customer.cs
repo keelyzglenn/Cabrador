@@ -99,7 +99,33 @@ namespace Cabrador
             return allCustomers;
         }
 
+        public void Save()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
 
+            SqlCommand cmd = new SqlCommand("INSERT INTO customers (name, photo, email, password) OUTPUT INSERTED.id VALUES (@CustomerName, @CustomerPhoto, @CustomerEmail, @CustomerPassword);", conn);
+
+            cmd.Parameters.Add(new SqlParameter("@CustomerName", this.GetName()));
+            cmd.Parameters.Add(new SqlParameter("@CustomerPhoto", this.GetPhoto()));
+            cmd.Parameters.Add(new SqlParameter("@CustomerEmail", this.GetEmail()));
+            cmd.Parameters.Add(new SqlParameter("@CustomerPassword", this.GetPassword()));
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                this._id = rdr.GetInt32(0);
+            }
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+        }
 
 
 
