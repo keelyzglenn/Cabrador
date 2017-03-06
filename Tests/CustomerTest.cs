@@ -105,6 +105,7 @@ namespace Cabrador
             // Assert.Equal(newName, result.GetName());
         }
 
+<<<<<<< HEAD
         [Fact]
         public void AddTrip_AddsTripToCustomer()
         {
@@ -131,6 +132,9 @@ namespace Cabrador
             Assert.Equal(testList, result);
         }
 
+=======
+    
+>>>>>>> c2864e5853aacbefef69994a11e4a55ea6c22b2b
 
 
         public void Dispose()
