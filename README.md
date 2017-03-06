@@ -1,5 +1,7 @@
 # _Cabrador_
 
+http://www.enlightenmental.com/news-blog/calculate-distance-using-javascript-and-google-maps-to-create-a-realtime-quote-based-on-distance/
+
 #### _Ride share app with dogs, 3.3.17_
 
 #### By _**Katy Daviscourt, Cassie Musolf, Caitlin Hines, Keely Glenn**_
