@@ -238,6 +238,54 @@ namespace Cabrador
             return foundDog;
         }
 
+        public void UpdateAdoptStatus(bool newAdopted)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE dogs SET adopted = @newAdopted OUTPUT INSERTED.* WHERE id = @DogId;", conn);
+
+
+            SqlParameter newAdoptedParameter = new SqlParameter();
+            newAdoptedParameter.ParameterName = "@NewAdopted";
+            if (newAdopted == true)
+            {
+                newAdoptedParameter.Value = 1;
+            } else {
+                newAdoptedParameter.Value = 0;
+            }
+            cmd.Parameters.Add(newAdoptedParameter);
+
+            SqlParameter dogIdParameter = new SqlParameter();
+            dogIdParameter.ParameterName = "@DogId";
+            dogIdParameter.Value = this.GetId();
+            cmd.Parameters.Add(dogIdParameter);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                bool dogAdopt;
+                if (rdr.GetByte(5) == 1)
+                {
+                    this._adopt = true;
+                }
+                else
+                {
+                    this._adopt = false;
+                }
+            }
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+
+            if (conn != null)
+            {
+                conn.Close();
+            }
+        }
+
 
         public static void DeleteAll()
         {
