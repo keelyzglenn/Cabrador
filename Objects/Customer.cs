@@ -222,8 +222,6 @@ namespace Cabrador
             }
         }
 
-<<<<<<< HEAD
-//NEEDS A LOT OF WORK STILL----NOT FINISHED!
         public void AddTrip(Trip newTrip)
                {
                    SqlConnection conn = DB.Connection();
@@ -287,8 +285,7 @@ namespace Cabrador
 
                    return allTrips;
                }
-=======
->>>>>>> c2864e5853aacbefef69994a11e4a55ea6c22b2b
+
 
 
         public static void DeleteAll()
