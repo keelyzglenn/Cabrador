@@ -182,6 +182,46 @@ namespace Cabrador
             }
         }
 
+        public void Update(string newName, string newPhoto)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE customers SET name = @NewName, photo = @NewPhoto OUTPUT INSERTED.* WHERE id = @CustomerId;", conn);
+
+            SqlParameter newNameParameter = new SqlParameter();
+            newNameParameter.ParameterName = "@NewName";
+            newNameParameter.Value = newName;
+            cmd.Parameters.Add(newNameParameter);
+
+            SqlParameter newPhotoParameter = new SqlParameter();
+            newPhotoParameter.ParameterName = "@NewPhoto";
+            newPhotoParameter.Value = newPhoto;
+            cmd.Parameters.Add(newPhotoParameter);
+
+            SqlParameter customerIdParameter = new SqlParameter();
+            customerIdParameter.ParameterName = "@CustomerId";
+            customerIdParameter.Value = this.GetId();
+            cmd.Parameters.Add(customerIdParameter);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                this._name = rdr.GetString(1);
+                this._photo = rdr.GetString(2);
+            }
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+
+            if (conn != null)
+            {
+                conn.Close();
+            }
+        }
+
 
 
         public static void DeleteAll()

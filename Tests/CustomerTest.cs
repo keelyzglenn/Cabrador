@@ -84,6 +84,26 @@ namespace Cabrador
             Assert.Equal(0, Customer.GetAll().Count);
         }
 
+        [Fact]
+        public void Update_UpdateInDatabase_true()
+        {
+            //Arrange
+            string name = "Bianca Miller";
+            string photo = "www.jjjjj.com";
+
+            Customer testCustomer = new Customer(name, photo, "hzdlhsg", "sgsgwKRGHI");
+            testCustomer.Save();
+            string newName = "Bee Miller";
+            string newPhoto = "www.ddreeffr.com";
+
+            //Act
+            testCustomer.Update(newName, newPhoto);
+            Customer result = Customer.GetAll()[0];
+
+            //Assert
+            Assert.Equal(testCustomer, result);
+            // Assert.Equal(newName, result.GetName());
+        }
 
 
 
