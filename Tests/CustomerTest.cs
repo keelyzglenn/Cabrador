@@ -73,6 +73,19 @@ namespace Cabrador
         }
 
 
+        [Fact]
+        public void Delete_RemoveCustomerFromDatabase_Deleted()
+        {
+            Customer newCustomer = new Customer("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
+            newCustomer.Save();
+
+            Customer.Delete(newCustomer.GetId());
+
+            Assert.Equal(0, Customer.GetAll().Count);
+        }
+
+
+
 
         public void Dispose()
         {
