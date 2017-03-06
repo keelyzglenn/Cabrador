@@ -129,6 +129,46 @@ namespace Cabrador
             }
         }
 
+        public static Driver Find(int id)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM drivers WHERE id = @DriverId", conn);
+
+            SqlParameter driverIdParameter = new SqlParameter();
+            driverIdParameter.ParameterName = "@DriverId";
+            driverIdParameter.Value = id.ToString();
+            cmd.Parameters.Add(driverIdParameter);
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            int foundDriverId = 0;
+            string foundDriverName = null;
+            string foundDriverCar = null;
+            string foundDriverPhoto = null;
+
+            while(rdr.Read())
+            {
+                foundDriverId = rdr.GetInt32(0);
+                foundDriverName = rdr.GetString(1);
+                foundDriverCar = rdr.GetString(2);
+                foundDriverPhoto = rdr.GetString(3);
+            }
+            Driver foundDriver = new Driver(foundDriverName, foundDriverCar, foundDriverPhoto, foundDriverId);
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+            return foundDriver;
+        }
+
+
         public static void DeleteAll()
         {
           SqlConnection conn = DB.Connection();

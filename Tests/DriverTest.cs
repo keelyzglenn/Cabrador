@@ -36,5 +36,19 @@ namespace Cabrador
         {
             Driver.DeleteAll();
         }
+
+        [Fact]
+        public void Test_FindFindsDriverInDatabase()
+        {
+            //Arrange
+            Driver firstDriver = new Driver("Jerry", "Jeep", "img/url");
+            firstDriver.Save();
+
+            //Act
+            Driver result = Driver.Find(firstDriver.GetId());
+
+            //Assert
+            Assert.Equal(firstDriver, result);
+        }
     }
 }
