@@ -10,17 +10,16 @@
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">Cabrador</a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="/profile/@Model.GetId()/dogs">Our Dogs</a></li>
-            <li><a href="/profile/@Model.GetId()">Your Profile</a></li>
+            <li><a href="/profile/@Model["customer"].GetId()/dogs">Our Dogs</a></li>
+            <li><a href="/profile/@Model["customer"].GetId()">Your Profile</a></li>
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
     </div>
 </nav>
 
-<h1>@Model.GetName()</h1>
-<h1>@Model.GetEmail()</h1>
-<h1><img src='@Model.GetPhoto()'></h1>
-
-
-  <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>
+<h3>@Model["dog"].GetName()</h3>
+<h3>@Model["dog"].GetBreed()</h3>
+<h3><img src='@Model["dog"].GetPhoto()'></h3>
+<h3>@Model["dog"].GetShelter()</h3>
+<h3>@Model["dog"].AdoptStatus()</h3>

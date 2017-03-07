@@ -11,7 +11,7 @@ namespace Cabrador
             Get["/"] = _ =>{
                 return View["index.cshtml"];
             };
-// new user
+            // new user
             Get["/signup"] = _ => {
                 return View["signup.cshtml"];
             };
@@ -22,16 +22,16 @@ namespace Cabrador
                 return View["welcome_new.cshtml", newCustomer];
             };
 
-// returning user
+            // returning user
             Get["/login"] = _ => {
                 return View["login.cshtml"];
             };
-            //
+
             Post["/welcome/returning"] = _ => {
                 return View["welcome_returning.cshtml"];
             };
 
-// all users
+            // all users
             Get["/profile/{id}"] = parameters => {
                 Customer SelectedCustomer = Customer.Find(parameters.id);
                 return View["profile.cshtml", SelectedCustomer];
@@ -47,8 +47,25 @@ namespace Cabrador
                 SelectedCustomer.Update(Request.Form["update-name"], Request.Form["update-photo"]);
                 return View["profile.cshtml", SelectedCustomer];
             };
-// dogs
 
+            // dogs
+            Get["/profile/{id}/dogs"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>{};
+                List<Dog> AllDogs = Dog.GetAll();
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                model.Add("dogs", AllDogs);
+                model.Add("customer", SelectedCustomer);
+                return View["dogs.cshtml", model];
+            };
+
+            Get["/profile/{id}/dogs/{id}"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>();
+                Dog newDog = Dog.Find(parameters.id);
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                model.Add("dog", newDog);
+                model.Add("customer", SelectedCustomer);
+                return View["dog.cshtml", model];
+            };
         }
     }
 }
