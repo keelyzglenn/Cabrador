@@ -16,12 +16,12 @@ namespace Cabrador
         private int _dogid;
         private int _customerid;
 
-        public Trip(string Start, string Destination, int Price = 0, int Miles, DateTime Date, int DriverId, int DogId, int CustomerId, int Id = 0)
+        public Trip(string Start, string Destination, int Price, int Miles, DateTime Date, int DriverId, int DogId, int CustomerId, int Id = 0)
         {
             _id = Id;
             _start = Start;
             _destination = Destination;
-            _price = Price;
+            _price = 0;
             _miles = Miles;
             _date = Date;
             _driverid = DriverId;
