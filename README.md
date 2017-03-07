@@ -2,6 +2,10 @@
 
 http://www.enlightenmental.com/news-blog/calculate-distance-using-javascript-and-google-maps-to-create-a-realtime-quote-based-on-distance/
 
+https://www.youtube.com/watch?v=obOa8fdJ9aQ
+
+https://jmperezperez.com/google-maps-geolocation-directions-specific-destination/
+
 #### _Ride share app with dogs, 3.3.17_
 
 #### By _**Katy Daviscourt, Cassie Musolf, Caitlin Hines, Keely Glenn**_
