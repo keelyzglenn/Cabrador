@@ -27,9 +27,6 @@ namespace Cabrador
                 return View["login.cshtml"];
             };
 
-            Post["/welcome/returning"] = _ => {
-                return View["welcome_returning.cshtml"];
-
             Post["/welcome/returning"] = parameters => {
                 Customer.CustomerLogin(Request.Form["customer-email"], Request.Form["customer-password"]);
                 Customer SelectedCustomer = Customer.Find(parameters.id);
@@ -71,6 +68,7 @@ namespace Cabrador
                 model.Add("customer", SelectedCustomer);
                 return View["dog.cshtml", model];
             };
+
         }
     }
 }
