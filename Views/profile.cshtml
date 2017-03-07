@@ -1,7 +1,6 @@
 @{
-    Layout = "Shared/_Layout.cshtml";
+  Layout="Shared/_Layout.cshtml";
 }
-
 <ul id="dropdown1" class="dropdown-content">
     <li><a href="#!">New Trip</a></li>
     <li class="divider"></li>
@@ -19,5 +18,10 @@
     </div>
 </nav>
 
+<h1>@Model.GetName()</h1>
+<h1>@Model.GetPhoto()</h1>
+<h1>@Model.GetEmail()</h1>
 
-<h2>WELCOME @Model.GetName()</h2>
+
+
+  <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>

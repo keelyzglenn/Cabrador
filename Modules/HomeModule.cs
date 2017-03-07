@@ -16,9 +16,10 @@ namespace Cabrador
                 return View["signup.cshtml"];
             };
 
-            Post["/welcome/new"] = parameters => {
+            Post["/welcome/new"] = _ => {
                 Customer newCustomer = new Customer(Request.Form["customer-name"], Request.Form["customer-photo"], Request.Form["customer-email"], Request.Form["customer-password"]);
-                return View["welcome_new.cshtml"];
+                newCustomer.Save();
+                return View["welcome_new.cshtml", newCustomer];
             };
 
             // Get["/login"] = _ => {
@@ -28,6 +29,27 @@ namespace Cabrador
             // Post["/welcome/returning"] = _ => {
             //     return View["welcome_returning.cshtml"];
             // };
+
+            Get["/ourdogs"] = _ => {
+                List<Dog> AllDogs = Dog.GetAll();
+                return View["dogs.cshtml", AllDogs];
+            };
+
+            Get["/profile/{id}"] = parameters => {
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                return View["profile.cshtml", SelectedCustomer];
+            };
+
+            Get["/profile/edit/{id}"] = parameters => {
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                return View["edit_profile.cshtml", SelectedCustomer];
+            };
+
+            Patch["/profile/update/{id}"] = parameters => {
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                SelectedCustomer.Update(Request.Form["update-name"], Request.Form["update-photo"]);
+                return View["profile.cshtml", SelectedCustomer];
+            };
         }
     }
 }

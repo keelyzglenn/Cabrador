@@ -1,5 +1,5 @@
 @{
-    Layout = "Shared/_Layout.cshtml";
+  Layout="Shared/_Layout.cshtml";
 }
 
 <ul id="dropdown1" class="dropdown-content">
@@ -20,4 +20,13 @@
 </nav>
 
 
-<h2>WELCOME @Model.GetName()</h2>
+    <div class= "update">
+    <form action="/profile/update/@Model.GetId()" method="post">
+        <input type="hidden" name="_method" value="PATCH">
+        <label for="update-name">New name:</label>
+        <input id="update-name" name="update-name" type="text">
+        <label for="update-photo">New photo:</label>
+        <input id="update-photo" name="update-photo" type="text">
+        <button type='submit' class="btn">Update info</button>
+    </form>
+</div>
