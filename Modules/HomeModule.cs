@@ -27,12 +27,9 @@ namespace Cabrador
                 return View["login.cshtml"];
             };
 
-            Post["/welcome/returning"] = parameters => {
-                Dictionary<string, object> model = new Dictionary<string, object>();
-                Customer SelectedCustomer = Customer.Find(parameters.id);
-                Customer.CustomerLogin(Request.Form["customer-email"], Request.Form["customer-password"]);
-                model.Add("customers", SelectedCustomer);
-                return View["welcome_returning.cshtml", model];
+            Post["/welcome/returning"] = _ => {
+                Customer returningCustomer = Customer.CustomerLogin(Request.Form["customer-email"], Request.Form["customer-password"]);
+                return View["welcome_returning.cshtml", returningCustomer];
             };
 
             // all users
