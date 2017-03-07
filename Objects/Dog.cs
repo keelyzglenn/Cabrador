@@ -70,6 +70,18 @@ namespace Cabrador
             }
         }
 
+        public string AdoptStatus()
+        {
+            if (this._adopt == false)
+            {
+                return "Available for adoption";
+            }
+            else
+            {
+                return "This dog already has their forever home";
+            }
+        }
+
         public override int GetHashCode()
         {
             return this.GetName().GetHashCode();

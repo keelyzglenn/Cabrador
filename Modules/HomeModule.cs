@@ -11,7 +11,7 @@ namespace Cabrador
             Get["/"] = _ =>{
                 return View["index.cshtml"];
             };
-
+            // new user
             Get["/signup"] = _ => {
                 return View["signup.cshtml"];
             };
@@ -22,10 +22,11 @@ namespace Cabrador
                 return View["welcome_new.cshtml", newCustomer];
             };
 
+            // returning user
             Get["/login"] = _ => {
                 return View["login.cshtml"];
             };
-            //
+
             Post["/welcome/returning"] = parameters => {
                 Dictionary<string, object> model = new Dictionary<string, object>();
                 Customer SelectedCustomer = Customer.Find(parameters.id);
@@ -34,11 +35,7 @@ namespace Cabrador
                 return View["welcome_returning.cshtml", model];
             };
 
-            Get["/ourdogs"] = _ => {
-                List<Dog> AllDogs = Dog.GetAll();
-                return View["dogs.cshtml", AllDogs];
-            };
-
+            // all users
             Get["/profile/{id}"] = parameters => {
                 Customer SelectedCustomer = Customer.Find(parameters.id);
                 return View["profile.cshtml", SelectedCustomer];
@@ -54,6 +51,26 @@ namespace Cabrador
                 SelectedCustomer.Update(Request.Form["update-name"], Request.Form["update-photo"]);
                 return View["profile.cshtml", SelectedCustomer];
             };
+
+            // dogs
+            Get["/profile/{id}/dogs"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>{};
+                List<Dog> AllDogs = Dog.GetAll();
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                model.Add("dogs", AllDogs);
+                model.Add("customer", SelectedCustomer);
+                return View["dogs.cshtml", model];
+            };
+
+            Get["/profile/{id}/dogs/{id}"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>();
+                Dog newDog = Dog.Find(parameters.id);
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                model.Add("dog", newDog);
+                model.Add("customer", SelectedCustomer);
+                return View["dog.cshtml", model];
+            };
+
         }
     }
 }

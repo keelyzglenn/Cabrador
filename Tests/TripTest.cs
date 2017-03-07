@@ -22,7 +22,6 @@ namespace Cabrador
 
             Trip firstTrip = new Trip("1701", "801", 1, 2, date, 1, 2, 3);
             firstTrip.Save();
-            Console.WriteLine(firstTrip.GetPrice());
 
             Trip secondTrip = new Trip("2018", "801", 1, 2, date, 1, 2, 3);
             secondTrip.Save();
