@@ -22,13 +22,13 @@ namespace Cabrador
                 return View["welcome_new.cshtml", newCustomer];
             };
 
-            // Get["/login"] = _ => {
-            //     return View["login.cshtml"];
-            // };
+            Get["/login"] = _ => {
+                return View["login.cshtml"];
+            };
             //
-            // Post["/welcome/returning"] = _ => {
-            //     return View["welcome_returning.cshtml"];
-            // };
+            Post["/welcome/returning"] = _ => {
+                return View["welcome_returning.cshtml"];
+            };
 
             Get["/ourdogs"] = _ => {
                 List<Dog> AllDogs = Dog.GetAll();

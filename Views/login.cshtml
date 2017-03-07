@@ -1,6 +1,8 @@
 @{
-    Layout = "Shared/_Layout.cshtml";
+  Layout="Shared/_Layout.cshtml";
 }
+
+
 <nav>
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">Cabrador</a>
@@ -11,19 +13,8 @@
     </div>
 </nav>
 
-
 <div class="row">
-    <form action="/welcome/new" method="post" class="col s12">
-        <div class="row">
-            <div class="input-field col s6">
-                <input id="customer-name" name="customer-name" type="text" class="validate">
-                <label for="customer-name">Name</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="customer-photo" type="text" name="customer-photo" class="validate">
-                <label for="customer-photo">Photo</label>
-            </div>
-        </div>
+    <form action="/welcome/returning" method="post" class="col s12">
         <div class="row">
             <div class="input-field col s12">
                 <input id="customer-email" name="customer-email" type="email" class="validate">

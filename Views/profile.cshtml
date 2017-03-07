@@ -2,13 +2,13 @@
   Layout="Shared/_Layout.cshtml";
 }
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">New Trip</a></li>
+    <li><a href="">New Trip</a></li>
     <li class="divider"></li>
     <li><a href="#!">Past Trips</a></li>
 </ul>
 <nav>
     <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Cabrador</a>
+        <a href="/" class="brand-logo">Cabrador</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="dogs.cshtml">Our Dogs</a></li>
             <li><a href="/profile/@Model.GetId()">Your Profile</a></li>
@@ -19,9 +19,8 @@
 </nav>
 
 <h1>@Model.GetName()</h1>
-<h1>@Model.GetPhoto()</h1>
 <h1>@Model.GetEmail()</h1>
-
+<img src='@Model.GetPhoto()'</h1>
 
 
   <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>
