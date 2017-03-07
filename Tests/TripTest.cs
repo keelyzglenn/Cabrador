@@ -20,10 +20,11 @@ namespace Cabrador
             // arrange
             DateTime date = new DateTime(2017, 1, 1);
 
-            Trip firstTrip = new Trip("1701", "801", 10, 2, date, 1, 2, 3);
+            Trip firstTrip = new Trip("1701", "801", 1, 2, date, 1, 2, 3);
             firstTrip.Save();
+            Console.WriteLine(firstTrip.GetPrice());
 
-            Trip secondTrip = new Trip("2018", "801", 10, 2, date, 1, 2, 3);
+            Trip secondTrip = new Trip("2018", "801", 1, 2, date, 1, 2, 3);
             secondTrip.Save();
 
             // act
