@@ -166,6 +166,51 @@ namespace Cabrador
             return foundCustomer;
         }
 
+        public static Customer CustomerLogin(string username, string password)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM customers WHERE email = '"+ username +"' AND password= '"+ password +"';", conn);
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            int foundCustomerId = 0;
+            string foundCustomerName = null;
+            string foundCustomerPhoto = null;
+            string foundCustomerEmail = null;
+            string foundCustomerPassword = null;
+
+            while(rdr.Read())
+            {
+                foundCustomerId = rdr.GetInt32(0);
+                foundCustomerName = rdr.GetString(1);
+                foundCustomerPhoto = rdr.GetString(2);
+                foundCustomerEmail = rdr.GetString(3);
+                foundCustomerPassword = rdr.GetString(4);
+            }
+            Customer foundCustomer = new Customer(foundCustomerName, foundCustomerPhoto, foundCustomerEmail, foundCustomerPassword, foundCustomerId);
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
+
+            if (foundCustomer.GetId() != 0)
+            {
+            return foundCustomer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         public static void Delete(int id)
         {
             SqlConnection conn = DB.Connection();
@@ -223,46 +268,46 @@ namespace Cabrador
         }
 
 
-//NEEDS A LOT OF WORK STILL----NOT FINISHED!
-               public List<Trip> GetTrips()
-               {
-                   List<Trip> allTrips = new List<Trip>{};
-                   SqlConnection conn = DB.Connection();
-                   conn.Open();
+        //NEEDS A LOT OF WORK STILL----NOT FINISHED!
+        public List<Trip> GetTrips()
+        {
+            List<Trip> allTrips = new List<Trip>{};
+            SqlConnection conn = DB.Connection();
+            conn.Open();
 
-                   SqlCommand cmd = new SqlCommand("SELECT trips.* FROM trips JOIN customers ON (customers.id = trips.customer_id) WHERE customers.id = @CustomerId;", conn);
+            SqlCommand cmd = new SqlCommand("SELECT trips.* FROM trips JOIN customers ON (customers.id = trips.customer_id) WHERE customers.id = @CustomerId;", conn);
 
-                   cmd.Parameters.Add(new SqlParameter("@CustomerId", this.GetId()));
+            cmd.Parameters.Add(new SqlParameter("@CustomerId", this.GetId()));
 
-                   SqlDataReader rdr= cmd.ExecuteReader();
+            SqlDataReader rdr= cmd.ExecuteReader();
 
-                   while(rdr.Read())
-                   {
-                       int foundId = rdr.GetInt32(0);
-                       string foundStartPoint = rdr.GetString(1);
-                       string foundDestination = rdr.GetString(2);
-                       int foundPrice = rdr.GetInt32(3);
-                       int foundMiles = rdr.GetInt32(4);
-                       DateTime foundDate = rdr.GetDateTime(5);
-                       int foundDriverId = rdr.GetInt32(6);
-                       int foundDogId = rdr.GetInt32(7);
-                       //foundCustomerId might be unnecessary
-                       int foundCustomerId = rdr.GetInt32(8);
-                       Trip foundTrip = new Trip(foundStartPoint, foundDestination, foundPrice, foundMiles, foundDate, foundDriverId, foundDogId, foundCustomerId, foundId);
-                       allTrips.Add(foundTrip);
-                   }
+            while(rdr.Read())
+            {
+                int foundId = rdr.GetInt32(0);
+                string foundStartPoint = rdr.GetString(1);
+                string foundDestination = rdr.GetString(2);
+                int foundPrice = rdr.GetInt32(3);
+                int foundMiles = rdr.GetInt32(4);
+                DateTime foundDate = rdr.GetDateTime(5);
+                int foundDriverId = rdr.GetInt32(6);
+                int foundDogId = rdr.GetInt32(7);
+                //foundCustomerId might be unnecessary
+                int foundCustomerId = rdr.GetInt32(8);
+                Trip foundTrip = new Trip(foundStartPoint, foundDestination, foundPrice, foundMiles, foundDate, foundDriverId, foundDogId, foundCustomerId, foundId);
+                allTrips.Add(foundTrip);
+            }
 
-                   if (rdr != null)
-                   {
-                       rdr.Close();
-                   }
-                   if (conn != null)
-                   {
-                       conn.Close();
-                   }
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+            if (conn != null)
+            {
+                conn.Close();
+            }
 
-                   return allTrips;
-               }
+            return allTrips;
+        }
 
 
 

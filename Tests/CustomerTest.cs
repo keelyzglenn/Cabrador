@@ -129,6 +129,43 @@ namespace Cabrador
             Assert.Equal(testList, result);
         }
 
+        [Fact]
+        public void CustomerLogin_FindsUser()
+        {
+            //Arrange
+            Customer testCustomer = new Customer("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
+            testCustomer.Save();
+
+            Customer testCustomer2 = new Customer("Bob", "www.hi.com", "bob@gmail.com", "hello");
+            testCustomer2.Save();
+
+            //Act
+            string email = "alice@gmail.com";
+            string password = "w!ee3w";
+            Customer foundCustomer = Customer.CustomerLogin(email, password);
+
+            //Assert
+            Assert.Equal(testCustomer, foundCustomer);
+        }
+
+        [Fact]
+        public void CustomerLogin_DoesntFindUser()
+        {
+            //Arrange
+            Customer testCustomer = new Customer("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
+            testCustomer.Save();
+
+            Customer testCustomer2 = new Customer("Bob", "www.hi.com", "bob@gmail.com", "hello");
+            testCustomer2.Save();
+
+            //Act
+            string email = "freeede@gmail.com";
+            string password = "wsfsfe3w";
+            Customer foundCustomer = Customer.CustomerLogin(email, password);
+
+            //Assert
+            Assert.Equal(null, foundCustomer);
+        }
 
         public void Dispose()
         {
