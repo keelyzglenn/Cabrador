@@ -29,7 +29,14 @@ namespace Cabrador
 
             Post["/welcome/returning"] = _ => {
                 Customer returningCustomer = Customer.CustomerLogin(Request.Form["customer-email"], Request.Form["customer-password"]);
-                return View["welcome_returning.cshtml", returningCustomer];
+                if (returningCustomer == null)
+                {
+                    return View["login_fail.cshtml"];
+                }
+                else
+                {
+                    return View["welcome_returning.cshtml", returningCustomer];
+                }
             };
 
             // all users
