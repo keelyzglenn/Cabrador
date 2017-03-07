@@ -27,9 +27,11 @@ namespace Cabrador
             };
             //
             Post["/welcome/returning"] = parameters => {
-                Customer.CustomerLogin(Request.Form["customer-email"], Request.Form["customer-password"]);
+                Dictionary<string, object> model = new Dictionary<string, object>();
                 Customer SelectedCustomer = Customer.Find(parameters.id);
-                return View["welcome_returning.cshtml", SelectedCustomer];
+                Customer.CustomerLogin(Request.Form["customer-email"], Request.Form["customer-password"]);
+                model.Add("customers", SelectedCustomer);
+                return View["welcome_returning.cshtml", model];
             };
 
             Get["/ourdogs"] = _ => {
