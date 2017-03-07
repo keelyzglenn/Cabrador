@@ -11,7 +11,7 @@ namespace Cabrador
             Get["/"] = _ =>{
                 return View["index.cshtml"];
             };
-
+// new user
             Get["/signup"] = _ => {
                 return View["signup.cshtml"];
             };
@@ -22,6 +22,7 @@ namespace Cabrador
                 return View["welcome_new.cshtml", newCustomer];
             };
 
+// returning user
             Get["/login"] = _ => {
                 return View["login.cshtml"];
             };
@@ -30,11 +31,7 @@ namespace Cabrador
                 return View["welcome_returning.cshtml"];
             };
 
-            Get["/ourdogs"] = _ => {
-                List<Dog> AllDogs = Dog.GetAll();
-                return View["dogs.cshtml", AllDogs];
-            };
-
+// all users
             Get["/profile/{id}"] = parameters => {
                 Customer SelectedCustomer = Customer.Find(parameters.id);
                 return View["profile.cshtml", SelectedCustomer];
@@ -50,6 +47,8 @@ namespace Cabrador
                 SelectedCustomer.Update(Request.Form["update-name"], Request.Form["update-photo"]);
                 return View["profile.cshtml", SelectedCustomer];
             };
+// dogs
+
         }
     }
 }

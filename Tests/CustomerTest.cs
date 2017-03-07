@@ -124,10 +124,7 @@ namespace Cabrador
             //Act
             List<Trip> result = testCustomer.GetTrips();
             List<Trip> testList = new List<Trip>{testTrip, testTrip2};
-            Console.WriteLine(result[0].GetStartPoint());
-            Console.WriteLine(result[1].GetStartPoint());
-            Console.WriteLine(result[0].GetStartPoint());
-            Console.WriteLine(result[1].GetStartPoint());
+        
             //Assert
             Assert.Equal(testList, result);
         }
