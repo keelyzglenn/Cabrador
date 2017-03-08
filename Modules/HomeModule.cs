@@ -40,6 +40,11 @@ namespace Cabrador
 
             };
 
+            Get["profile/index/{id}"] = parameters => {
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                return View["user_index.cshtml", SelectedCustomer];
+            };
+
             // all users
             Get["/profile/{id}"] = parameters => {
                 Customer SelectedCustomer = Customer.Find(parameters.id);
