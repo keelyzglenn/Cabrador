@@ -76,6 +76,28 @@ namespace Cabrador
                 return View["dog.cshtml", model];
             };
 
+            //trips
+
+            Get["/profile/{id}/trips"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>{};
+                List<Trip> AllTrips = Trip.GetAll();
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                model.Add("trips", AllTrips);
+                model.Add("customer", SelectedCustomer);
+                return View["trips.cshtml", model];
+            };
+
+            Get["/profile/{id}/trips/{id}"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>();
+                Trip newTrip = Trip.FindById(parameters.id);
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                Dog SelectedDog = Dog.Find(parameters.id);
+                model.Add("trip", newTrip);
+                model.Add("customer", SelectedCustomer);
+                model.Add("dog", SelectedDog);
+                return View["trip.cshtml", model];
+            };
+
         }
     }
 }
