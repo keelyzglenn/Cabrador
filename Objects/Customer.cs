@@ -48,6 +48,12 @@ namespace Cabrador
             return _password;
         }
 
+        public int GetRandomDriverId()
+        {
+            Random rnd = new Random();
+            int randomDriverId = rnd.Next(1, 27);
+            return randomDriverId;
+        }
 
         public override bool Equals(System.Object otherCustomer)
         {

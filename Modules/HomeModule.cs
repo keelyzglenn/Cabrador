@@ -97,9 +97,12 @@ namespace Cabrador
             Post["/profile/{id}/trip_confirm"] = parameters => {
                 Dictionary<string, object> model = new Dictionary<string, object>();
                 Customer SelectedCustomer = Customer.Find(parameters.id);
-                Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], 0, Request.Form["miles"], Request.Form["trip-date"], 3, Request.Form["trip-dog"], SelectedCustomer.GetId());
+                int driverId = SelectedCustomer.GetRandomDriverId();
+                Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], 0, Request.Form["miles"], Request.Form["trip-date"], driverId, Request.Form["trip-dog"], SelectedCustomer.GetId());
                 newTrip.Save();
                 Dog SelectedDog = Dog.Find(Request.Form["trip-dog"]);
+                Driver SelectedDriver = Driver.Find(driverId);
+                model.Add("driver", SelectedDriver);
                 model.Add("customer", SelectedCustomer);
                 model.Add("trip", newTrip);
                 model.Add("dog", SelectedDog);
@@ -119,7 +122,9 @@ namespace Cabrador
                 Dictionary<string, object> model = new Dictionary<string, object>();
                 Trip newTrip = Trip.FindById(parameters.id);
                 Customer SelectedCustomer = Customer.Find(parameters.id);
-                Dog SelectedDog = Dog.Find(parameters.id);
+                Dog SelectedDog = Dog.Find(newTrip.GetDogId());
+                Driver SelectedDriver = Driver.Find(newTrip.GetDriverId());
+                model.Add("driver", SelectedDriver);
                 model.Add("trip", newTrip);
                 model.Add("customer", SelectedCustomer);
                 model.Add("dog", SelectedDog);
