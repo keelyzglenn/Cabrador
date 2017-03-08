@@ -288,7 +288,7 @@ namespace Cabrador
                 string foundDestination = rdr.GetString(2);
                 int foundPrice = rdr.GetInt32(3);
                 int foundMiles = rdr.GetInt32(4);
-                DateTime foundDate = rdr.GetDateTime(5);
+                string foundDate = rdr.GetString(5);
                 int foundDriverId = rdr.GetInt32(6);
                 int foundDogId = rdr.GetInt32(7);
                 //foundCustomerId might be unnecessary

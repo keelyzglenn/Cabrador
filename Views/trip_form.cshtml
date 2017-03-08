@@ -19,7 +19,7 @@
 </nav>
 
 <div class="row">
-    <form class="col s12" action="/profile/@Model["customer"].GetId()/trip_confirm">
+    <form class="col s12" action="/profile/@Model["customer"].GetId()/trip_confirm" method='post' >
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">room</i>
@@ -32,8 +32,12 @@
                 <label for="icon_prefix">Destination Address</label>
             </div>
             <div class="input-field col s6">
+                <i class="material-icons prefix">today</i>
+                <input id="icon_telephone" type="date" class="datepicker" name="trip-date">
+            </div>
+            <div class="input-field col s6">
                 <i class="material-icons prefix">navigation</i>
-                <input id="icon_telephone" type="tel" class="validate" name="miles">
+                <input id="icon_telephone" type="number" class="validate" name="miles">
                 <label for="icon_telephone">Number of Miles</label>
             </div>
             <div class="input-field col s12">

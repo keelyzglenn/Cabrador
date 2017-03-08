@@ -11,12 +11,12 @@ namespace Cabrador
         private string _destination;
         private int _price;
         private int _miles;
-        private DateTime _date;
+        private string _date;
         private int _driverid;
         private int _dogid;
         private int _customerid;
 
-        public Trip(string Start, string Destination, int Price, int Miles, DateTime Date, int DriverId, int DogId, int CustomerId, int Id = 0)
+        public Trip(string Start, string Destination, int Price, int Miles, string Date, int DriverId, int DogId, int CustomerId, int Id = 0)
         {
             _id = Id;
             _start = Start;
@@ -60,7 +60,7 @@ namespace Cabrador
             return _miles;
         }
 
-        public DateTime GetDate()
+        public string GetDate()
         {
             return _date;
         }
@@ -136,7 +136,7 @@ namespace Cabrador
                 string destination = rdr.GetString(2);
                 int price = rdr.GetInt32(3);
                 int miles = rdr.GetInt32(4);
-                DateTime date = rdr.GetDateTime(5);
+                string date = rdr.GetString(5);
                 int driverid = rdr.GetInt32(6);
                 int dogid = rdr.GetInt32(7);
                 int customerid = rdr.GetInt32(8);
@@ -235,7 +235,7 @@ namespace Cabrador
             string foundDestination = null;
             int foundPrice = 0;
             int foundMiles = 0;
-            DateTime foundDate = new DateTime (1900, 01, 01);
+            string foundDate = null;
             int foundDriverId = 0;
             int foundDogId = 0;
             int foundCustomerId = 0;
@@ -249,7 +249,7 @@ namespace Cabrador
                 foundDestination = rdr.GetString(2);
                 foundPrice = rdr.GetInt32(3);
                 foundMiles = rdr.GetInt32(4);
-                foundDate = rdr.GetDateTime(5);
+                foundDate = rdr.GetString(5);
                 foundDriverId = rdr.GetInt32(6);
                 foundDogId = rdr.GetInt32(7);
                 foundCustomerId = rdr.GetInt32(8);

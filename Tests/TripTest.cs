@@ -18,12 +18,10 @@ namespace Cabrador
         public void GetAll_GetAllTrips_ListOfTrips()
         {
             // arrange
-            DateTime date = new DateTime(2017, 1, 1);
-
-            Trip firstTrip = new Trip("1701", "801", 1, 2, date, 1, 2, 3);
+            Trip firstTrip = new Trip("1701", "801", 1, 2, "8 March, 2017", 1, 2, 3);
             firstTrip.Save();
 
-            Trip secondTrip = new Trip("2018", "801", 1, 2, date, 1, 2, 3);
+            Trip secondTrip = new Trip("2018", "801", 1, 2, "8 March, 2017", 1, 2, 3);
             secondTrip.Save();
 
             // act
@@ -37,9 +35,7 @@ namespace Cabrador
         [Fact]
         public void FindById_ReturnsTripWhenSearchedById()
         {
-            DateTime date = new DateTime(2017, 1, 1);
-
-            Trip firstTrip = new Trip("1701", "801", 10, 2, date, 1, 2, 3);
+            Trip firstTrip = new Trip("1701", "801", 10, 2, "8 March, 2017", 1, 2, 3);
             firstTrip.Save();
 
             Trip result = Trip.FindById(firstTrip.GetId());

@@ -112,19 +112,16 @@ namespace Cabrador
             Customer testCustomer = new Customer("Alice Jenkins", "www.pic.coh", "alice@gmail.com", "w!ee3w");
             testCustomer.Save();
 
-            DateTime date1 = new DateTime(2008, 4, 10);
-            Trip testTrip = new Trip("123 E Happy St", "1202 3rd Ave", 4, 8, date1, 2, 3, testCustomer.GetId());
+            Trip testTrip = new Trip("123 E Happy St", "1202 3rd Ave", 4, 8, "7 March, 2017", 2, 3, testCustomer.GetId());
             testTrip.Save();
 
-
-            DateTime date2 = new DateTime(2009, 5, 12);
-            Trip testTrip2 = new Trip("123 E Sad St", "1202 4rd Ave", 3, 12, date2, 1, 4, testCustomer.GetId());
+            Trip testTrip2 = new Trip("123 E Sad St", "1202 4rd Ave", 3, 12, "4 May, 2013", 1, 4, testCustomer.GetId());
             testTrip2.Save();
 
             //Act
             List<Trip> result = testCustomer.GetTrips();
             List<Trip> testList = new List<Trip>{testTrip, testTrip2};
-        
+
             //Assert
             Assert.Equal(testList, result);
         }
