@@ -99,7 +99,7 @@ namespace Cabrador
                 Customer SelectedCustomer = Customer.Find(parameters.id);
                 Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], 0, Request.Form["miles"], Request.Form["trip-date"], 3, Request.Form["trip-dog"], SelectedCustomer.GetId());
                 newTrip.Save();
-                Dog SelectedDog = Dog.Find(parameters.id);
+                Dog SelectedDog = Dog.Find(Request.Form["trip-dog"]);
                 model.Add("customer", SelectedCustomer);
                 model.Add("trip", newTrip);
                 model.Add("dog", SelectedDog);
