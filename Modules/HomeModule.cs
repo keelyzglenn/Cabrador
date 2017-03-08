@@ -83,6 +83,29 @@ namespace Cabrador
 
             //trips
 
+            Get["/profile/{id}/newtrip"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>();
+                List<Dog> AllDogs = Dog.GetAll();
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                Driver SelectedDriver = Driver.Find(parameters.id);
+                model.Add("dog", AllDogs);
+                model.Add("customer", SelectedCustomer);
+                model.Add("driver", SelectedDriver);
+                return View["trip_new.cshtml", model];
+            };
+
+            Post["/profile/{id}/trip_confirm"] = parameters => {
+                Dictionary<string, object> model = new Dictionary<string, object>();
+                Customer SelectedCustomer = Customer.Find(parameters.id);
+                Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], 0, Request.Form["miles"], Request.Form["date"], 3, Request.Form["trip-dog"], SelectedCustomer.GetId());
+                newTrip.Save();
+                Dog SelectedDog = Dog.Find(parameters.id);
+                model.Add("customer", SelectedCustomer);
+                model.Add("trip", newTrip);
+                model.Add("dog", SelectedDog);
+                return View["trip_confirm.cshtml", newTrip];
+            };
+
             Get["/profile/{id}/trips"] = parameters => {
                 Dictionary<string, object> model = new Dictionary<string, object>{};
                 List<Trip> AllTrips = Trip.GetAll();

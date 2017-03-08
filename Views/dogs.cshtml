@@ -2,9 +2,9 @@
   Layout="Shared/_Layout.cshtml";
 }
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="">New Trip</a></li>
+    <li><a href="/profile/@Model["customer"].GetId()/newtrip">New Trip</a></li>
     <li class="divider"></li>
-    <li><a href="#!">Past Trips</a></li>
+    <li><a href="/profile/@Model["customer"].GetId()/trips">Past Trips</a></li>
 </ul>
 <nav>
     <div class="nav-wrapper">
