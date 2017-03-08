@@ -97,13 +97,13 @@ namespace Cabrador
             Post["/profile/{id}/trip_confirm"] = parameters => {
                 Dictionary<string, object> model = new Dictionary<string, object>();
                 Customer SelectedCustomer = Customer.Find(parameters.id);
-                Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], Request.Form["trip-date"], Request.Form["miles"], Request.Form["date"], 3, Request.Form["trip-dog"], SelectedCustomer.GetId());
+                Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], 0, Request.Form["miles"], Request.Form["trip-date"], 3, Request.Form["trip-dog"], SelectedCustomer.GetId());
                 newTrip.Save();
                 Dog SelectedDog = Dog.Find(parameters.id);
                 model.Add("customer", SelectedCustomer);
                 model.Add("trip", newTrip);
                 model.Add("dog", SelectedDog);
-                return View["trip_confirm.cshtml", newTrip];
+                return View["trip_confirm.cshtml", model];
             };
 
             Get["/profile/{id}/trips"] = parameters => {
