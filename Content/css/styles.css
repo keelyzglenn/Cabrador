@@ -186,6 +186,34 @@ font-size: 70px !important;
 }
 
 
+#photo {
+  float: left;
+  margin: 30px;
+}
+
+
+.body {
+  float: right;
+}
+
+
+.space {
+  margin-top: 70px;
+}
+
+
+.card {
+  text-align: center;
+}
+
+
+.adopted {
+  margin: 100px;
+  text-align: center;
+}
+
+
+
 font-family: 'Open Sans', sans-serif;
 font-family: 'Raleway', sans-serif;
 font-family: 'Dosis', sans-serif;
