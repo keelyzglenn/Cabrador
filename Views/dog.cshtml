@@ -1,33 +1,62 @@
-@{
-  Layout="Shared/_Layout.cshtml";
-}
-<ul id="dropdown1" class="dropdown-content">
-    <li><a href="/profile/@Model["customer"].GetId()/newtrip">New Trip</a></li>
-    <li class="divider"></li>
-    <li><a href="/profile/@Model["customer"].GetId()/trips">Past Trips</a></li>
-</ul>
-<nav>
-    <div class="nav-wrapper">
-        <a href="/profile/index/@Model["customer"].GetId()" class="brand-logo">Cabrador</a>
-        <ul class="right hide-on-med-and-down">
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="/profile/@Model["customer"].GetId()/dogs">Our Dogs</a></li>
-            <li><a href="/profile/@Model["customer"].GetId()">Your Profile</a></li>
-            <li><a href="/">Log Out</a></li>
-        </ul>
-    </div>
-</nav>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cabrador</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+     <link rel="stylesheet" href="/Content/css/styles2.css">
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+     <script src="/Content/js/scripts.js" charset="utf-8"></script>
+     <link href="https://fonts.googleapis.com/css?family=Cabin|Cabin+Sketch:700|Dekko|Dosis|Faster+One|Kranky|Love+Ya+Like+A+Sister|Megrim|Open+Sans|Patrick+Hand+SC|Poiret+One|Raleway|Righteous|Slackey" rel="stylesheet">
 
-<h3>@Model["dog"].GetName()</h3>
-<h3>@Model["dog"].GetBreed()</h3>
-<h3><img src='@Model["dog"].GetPhoto()'></h3>
-<h3>@Model["dog"].GetShelter()</h3>
-<h3>@Model["dog"].AdoptStatus()</h3>
-@if(@Model["dog"].AdoptStatus() != "This dog already has their forever home")
-{
-  <form action="/profile/@Model["customer"].GetId()/dogs/@Model["dog"].GetId()/adopt" method="post">
-           <input type="hidden" name="_method" value="PATCH">
-        <button type="submit" class="btn">Adopt this dog!</button>
-  </form>
-}
+</head>
+<body>
+  <ul id="dropdown1" class="dropdown-content">
+      <li><a href="/profile/@Model["customer"].GetId()/newtrip">New Trip</a></li>
+      <li class="divider"></li>
+      <li><a href="/profile/@Model["customer"].GetId()/trips">Past Trips</a></li>
+  </ul>
+  <nav>
+      <div class="nav-wrapper">
+          <a href="/profile/index/@Model["customer"].GetId()" class="brand-logo">Cabrador</a>
+          <ul class="right hide-on-med-and-down">
+              <!-- Dropdown Trigger -->
+              <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a href="/profile/@Model["customer"].GetId()/dogs">Our Dogs</a></li>
+              <li><a href="/profile/@Model["customer"].GetId()">Your Profile</a></li>
+              <li><a href="/">Log Out</a></li>
+          </ul>
+      </div>
+  </nav>
+
+
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src= @Model["dog"].GetPhoto()>
+        </div>
+        <div class="card-content">
+          <h4>Name: @Model["dog"].GetName()</h4>
+          <h4>Breed: @Model["dog"].GetBreed()</h4>
+          <h4>Shelter: @Model["dog"].GetShelter()</h4>
+        </div>
+        <div class="card-action">
+          <h4>Adopt Status: @Model["dog"].AdoptStatus()</h4>
+          @if(@Model["dog"].AdoptStatus() != "At their forever home")
+          {
+            <form action="/profile/@Model["customer"].GetId()/dogs/@Model["dog"].GetId()/adopt" method="post">
+              <input type="hidden" name="_method" value="PATCH">
+              <button type="submit" class="btn">Adopt this dog!</button>
+            </form>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
