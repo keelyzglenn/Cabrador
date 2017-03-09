@@ -1,3 +1,4 @@
+/*MAP STUFF*/
 #discription h1, .discription_item, #waypoints h1, #waypoints a, #fork a{
     display: block;
     padding: 10px 10px 0px 10px;
@@ -48,4 +49,10 @@
     font-weight: bold;
     font-size: 20px;
     color: blue;
+}
+
+/*Content Styling*/
+body {
+  height: 900px;
+  background-color: blue;
 }
