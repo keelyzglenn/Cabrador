@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Nancy;
 using Nancy.ViewEngines.Razor;
+using System;
 
 namespace Cabrador
 {
@@ -72,10 +73,10 @@ namespace Cabrador
                 return View["dogs.cshtml", model];
             };
 
-            Get["/profile/{id}/dogs/{id}"] = parameters => {
+            Get["/profile/{user_id}/dogs/{dog_id}"] = parameters => {
                 Dictionary<string, object> model = new Dictionary<string, object>();
-                Dog newDog = Dog.Find(parameters.id);
-                Customer SelectedCustomer = Customer.Find(parameters.id);
+                Dog newDog = Dog.Find(parameters.dog_id);
+                Customer SelectedCustomer = Customer.Find(parameters.user_id);
                 model.Add("dog", newDog);
                 model.Add("customer", SelectedCustomer);
                 return View["dog.cshtml", model];
@@ -97,11 +98,15 @@ namespace Cabrador
             Post["/profile/{id}/trip_confirm"] = parameters => {
                 Dictionary<string, object> model = new Dictionary<string, object>();
                 Customer SelectedCustomer = Customer.Find(parameters.id);
+                Console.WriteLine(SelectedCustomer.GetName());
                 int driverId = SelectedCustomer.GetRandomDriverId();
                 Trip newTrip = new Trip(Request.Form["start-address"], Request.Form["stop-address"], 0, Request.Form["miles"], Request.Form["trip-date"], driverId, Request.Form["trip-dog"], SelectedCustomer.GetId());
                 newTrip.Save();
+                  Console.WriteLine(newTrip.GetMiles());
                 Dog SelectedDog = Dog.Find(Request.Form["trip-dog"]);
+                  Console.WriteLine(SelectedDog.GetName());
                 Driver SelectedDriver = Driver.Find(driverId);
+                  Console.WriteLine(SelectedCustomer.GetName());
                 model.Add("driver", SelectedDriver);
                 model.Add("customer", SelectedCustomer);
                 model.Add("trip", newTrip);
