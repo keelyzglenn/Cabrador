@@ -1,11 +1,5 @@
 # _Cabrador_
 
-http://www.enlightenmental.com/news-blog/calculate-distance-using-javascript-and-google-maps-to-create-a-realtime-quote-based-on-distance/
-
-https://www.youtube.com/watch?v=obOa8fdJ9aQ
-
-https://jmperezperez.com/google-maps-geolocation-directions-specific-destination/
-
 #### _Ride share app with dogs, 3.3.17_
 
 #### By _**Katy Daviscourt, Cassie Musolf, Caitlin Hines, Keely Glenn**_
@@ -34,7 +28,7 @@ _This webpage allows the user to create an account and book a ride with a driver
 * In the browser, to go "localhost:5004" to view webpage
 
 
-## Specifications
+## Specifications:
 
 ### Customers
 
@@ -142,23 +136,3 @@ _C#, MSSQL_
 *Available under an MIT License*
 
 Copyright (c) 2017 **_Katy Daviscourt, Cassie Musolf, Caitlin Hines, Keely Glenn_**
-
-
-
-To do:
-
-hide adopt button if already adopted
-past trips: row
-feature dog images go to dog link
-no nav bar in shared lay out
-layout thing for all views
-
-
-
-1 team:
-adopt button
-carousel
-
-2 team:
-layout and html things
-index

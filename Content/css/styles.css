@@ -177,6 +177,18 @@ font-size: 70px !important;
   margin-top: 70px;
 }
 
+#userindex {
+  margin-top: 160px;
+}
+
+#dognews {
+  float:right;
+}
+
+.dogicon {
+  height: 60px;
+}
+
 
 font-family: 'Open Sans', sans-serif;
 font-family: 'Raleway', sans-serif;
