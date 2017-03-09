@@ -274,7 +274,6 @@ namespace Cabrador
         }
 
 
-        //NEEDS A LOT OF WORK STILL----NOT FINISHED!
         public List<Trip> GetTrips()
         {
             List<Trip> allTrips = new List<Trip>{};

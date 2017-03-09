@@ -126,7 +126,7 @@ namespace Cabrador
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM trips;", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM trips ORDER BY date;", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
 
             while(rdr.Read())

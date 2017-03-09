@@ -72,10 +72,10 @@ namespace Cabrador
         return View["dogs.cshtml", model];
       };
 
-      Get["/profile/{id}/dogs/{id}"] = parameters => {
+      Get["/profile/{user_id}/dogs/{dog_id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
-        Dog newDog = Dog.Find(parameters.id);
-        Customer SelectedCustomer = Customer.Find(parameters.id);
+        Dog newDog = Dog.Find(parameters.dog_id);
+        Customer SelectedCustomer = Customer.Find(parameters.user_id);
         model.Add("dog", newDog);
         model.Add("customer", SelectedCustomer);
         return View["dog.cshtml", model];
@@ -120,17 +120,17 @@ namespace Cabrador
 
       Get["/profile/{id}/trips"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>{};
-        List<Trip> AllTrips = Trip.GetAll();
         Customer SelectedCustomer = Customer.Find(parameters.id);
+        List<Trip> AllTrips = SelectedCustomer.GetTrips();
         model.Add("trips", AllTrips);
         model.Add("customer", SelectedCustomer);
         return View["trips.cshtml", model];
       };
 
-      Get["/profile/{id}/trips/{id}"] = parameters => {
+      Get["/profile/{user_id}/trips/{trip_id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
-        Trip newTrip = Trip.FindById(parameters.id);
-        Customer SelectedCustomer = Customer.Find(parameters.id);
+        Trip newTrip = Trip.FindById(parameters.trip_id);
+        Customer SelectedCustomer = Customer.Find(parameters.user_id);
         Dog SelectedDog = Dog.Find(newTrip.GetDogId());
         Driver SelectedDriver = Driver.Find(newTrip.GetDriverId());
         model.Add("driver", SelectedDriver);
