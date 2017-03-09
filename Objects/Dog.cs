@@ -70,6 +70,41 @@ namespace Cabrador
             }
         }
 
+        public void MarkAdopted()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE dogs SET adopted = 1 OUTPUT INSERTED.adopted WHERE id = @dogId;", conn);
+
+            SqlParameter dogIdParameter = new SqlParameter();
+            dogIdParameter.ParameterName = "@dogId";
+            dogIdParameter.Value = this.GetId();
+            cmd.Parameters.Add(dogIdParameter);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                if (rdr.GetByte(0) == 1)
+                {
+                    this._adopt = true;
+                }
+                else{
+                    this._adopt = false;
+                }
+            }
+
+            if (rdr != null)
+            {
+                rdr.Close();
+            }
+
+            if (conn != null)
+            {
+                conn.Close();
+            }
+          }
+
         public string AdoptStatus()
         {
             if (this._adopt == false)

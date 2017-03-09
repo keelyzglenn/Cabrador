@@ -1,11 +1,22 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
 <nav>
     <div class="nav-wrapper">
         <a href="/" class="brand-logo">Cabrador</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
     </div>
 </nav>
 
 
-<h3>You have to create an account!</h3>
+<div class="container">
+  <h3>It looks like we can't find you in our system.</h3>
+  <h4> You either have to try your login again, or you have to create an account!</h4>
 
-<a href="/signup">Sign up for an account</a>
-<a href="/login">Log in again</a>
+  <a href="/signup" class="btn">Sign up for an account</a>
+  <a href="/login" class="btn">Log in again</a>
+
+</div>

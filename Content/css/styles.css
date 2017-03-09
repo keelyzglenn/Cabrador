@@ -1,19 +1,4 @@
-#discription h1, .discription_item, #waypoints h1, #waypoints a, #fork a{
-    display: block;
-    padding: 10px 10px 0px 10px;
-    font-size: 18px;
-}
-
-.discription_item b{
-    color: green;
-}
-
-#discription h1, #waypoints h1{
-    font-size: 30px;
-    margin: 0px;
-    color: green;
-    letter-spacing: 10px;
-}
+/*MAP STUFF*/
 
 #map{
     width: 50%;
@@ -21,31 +6,24 @@
     float:right;
 }
 
-#discription{
-    width: 50%;
-    float:left;
-    margin-top: 50px;
+
+/*Content Styling*/
+.how {
+  padding-top: 110px;
+  height: 540px;
+  background-image: url("/Content/img/icons/car2.png");
+  background-size: cover;
+  text-align: justify;
 }
 
-#waypoints, #fork{
-    width: 50%;
-    float:left;
+.chunk1 {
+  float:right;
 }
 
-#fork{
-    position: absolute;
-    bottom: 10px;
+#howtext {
+  font-size: 20px;
 }
 
-#waypoints input{
-    margin: 10px 10px 0px 10px;
-    display: block;
-    font-size: 18px;
-    width: 90%;
-}
-
-#waypoints a, #waypoints a:visited{
-    font-weight: bold;
-    font-size: 20px;
-    color: blue;
+#how {
+  text-align: center;
 }
