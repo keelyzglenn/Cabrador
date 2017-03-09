@@ -44,8 +44,8 @@
         <input id="start" value ="@Model["trip"].GetStartPoint()">
         <input id="end" value= "@Model["trip"].GetDestination()">
       </div>
-      <a href="#" onclick="javascript:calcRoute()">Show my route</a>
-
+      @* <a href="#" onclick="javascript:calcRoute()">Show My Route</a> *@
+      <body onload="javascript:calcRoute()">
     </div>
     <div class="col s6">
 
