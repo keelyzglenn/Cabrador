@@ -22,13 +22,20 @@
 .how {
   padding-top: 110px;
   height: 540px;
-  background-image: url("/Content/img/icons/car2.png");
-  background-size: cover;
-  text-align: justify;
+  /*text-align: justify;*/
 }
 
-.chunk1 {
-  float:right;
+img {
+  max-height: 700px;
+  margin-top: 20px;
+}
+
+.text {
+  text-align: center;
+}
+
+.icons {
+  max-height: 100px;
 }
 
 #howtext {
@@ -37,5 +44,31 @@
 
 #how {
   text-align: center;
+}
 
+.about {
+  padding-left: 40px;
+  padding-top: 100px;
+
+}
+
+.shelter {
+  text-align: justify;
+}
+
+.dogcar {
+  max-width: 800px;
+  float: right;
+}
+
+.middlerow {
+  margin: 150px;
+}
+
+.contact {
+
+  margin:
+  text-align: right;
+  margin-top: 150px;
+  margin-right: 40px;
 }
