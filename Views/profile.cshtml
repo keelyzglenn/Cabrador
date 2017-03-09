@@ -1,57 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Cabrador</title>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-     <link rel="stylesheet" href="/Content/css/styles2.css">
-     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-     <script src="/Content/js/scripts.js" charset="utf-8"></script>
-     <link href="https://fonts.googleapis.com/css?family=Cabin|Cabin+Sketch:700|Dekko|Dosis|Faster+One|Kranky|Love+Ya+Like+A+Sister|Megrim|Open+Sans|Patrick+Hand+SC|Poiret+One|Raleway|Righteous|Slackey" rel="stylesheet">
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="/profile/@Model.GetId()/newtrip">New Trip</a></li>
+  <li class="divider"></li>
+  <li><a href="/profile/@Model.GetId()/trips">Past Trips</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/profile/index/@Model.GetId()" class="brand-logo">Cabrador</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a href="/profile/@Model.GetId()/dogs">Our Dogs</a></li>
+      <li><a href="/profile/@Model.GetId()">Your Profile</a></li>
+      <li><a href="/">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
 
-</head>
-<body>
-
-    <main>
-      <ul id="dropdown1" class="dropdown-content">
-          <li><a href="/profile/@Model.GetId()/newtrip">New Trip</a></li>
-          <li class="divider"></li>
-          <li><a href="/profile/@Model.GetId()/trips">Past Trips</a></li>
-      </ul>
-      <nav>
-          <div class="nav-wrapper">
-              <a href="/profile/index/@Model.GetId()" class="brand-logo">Cabrador</a>
-              <ul class="right hide-on-med-and-down">
-                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
-                  <li><a href="/profile/@Model.GetId()/dogs">Our Dogs</a></li>
-                  <li><a href="/profile/@Model.GetId()">Your Profile</a></li>
-                  <li><a href="/">Log Out</a></li>
-              </ul>
-          </div>
-      </nav>
 <div class="row">
   <img id="photo" src='@Model.GetPhoto()'>
 
   <div class="body">
 
-  <div class="space">
-    <h2>Name: @Model.GetName()</h2>
-  </div>
+    <div class="space">
+      <h2>Name: @Model.GetName()</h2>
+    </div>
 
     <div class="space">
       <h2>Email: @Model.GetEmail()</h2>
     </div>
 
-<div class="space">
+    <div class="space">
 
-  <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>
-</div>
+      <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>
+    </div>
   </div>
 
 </div>
-
-    </main>
-</body>
-</html>
