@@ -7,7 +7,7 @@ function formatSeconds(sec){
 
 //Sends a query of a starting point and an array of waypoints to the google maps API
 //Prints out the result of the optimized route
-function executePathQuery(start, waypoints) {
+function executePathQuery(start, waypoints, end) {
 
     //Set up the map
     var map = new google.maps.Map(document.getElementById('map'));
@@ -24,7 +24,7 @@ function executePathQuery(start, waypoints) {
 
     //Sets the request options
     var request = {
-        destination: start,
+        destination: end,
         origin: start,
         waypoints: waypoints_processed,
         optimizeWaypoints: true, //Optimize the given waypoints
@@ -61,7 +61,7 @@ function executePathQuery(start, waypoints) {
         }
         else{
             //Status is not okay
-            alert("It seems at least one adress is not valid");
+            alert("It seems that your address is not valid");
         }
     });
 }
@@ -99,6 +99,8 @@ function calcRoute() {
     //The start and end point
     let start = $("#start").val();
 
+    let end = $("#end").val();
+
     //The waypoints
     let waypoints = [];
     $(".waypoint_input").each(function(){
@@ -108,19 +110,20 @@ function calcRoute() {
     });
 
     //Execute the query
-    executePathQuery(start, waypoints);
+    executePathQuery(start, waypoints, end);
 }
 //
-// $(document).ready(function(){
-//     $('select').material_select();
-// });
-//
-//
-// $(document).ready(function(){
-//   $('.carousel').carousel();
-// });
-//
-// $('.datepicker').pickadate({
-//     selectMonths: true, // Creates a dropdown to control month
-//     selectYears: 15 // Creates a dropdown of 15 years to control year
-//   });
+
+$(document).ready(function(){
+    $('select').material_select();
+});
+
+
+$(document).ready(function(){
+  $('.carousel').carousel();
+});
+
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });

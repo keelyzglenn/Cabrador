@@ -1,27 +1,67 @@
-@{
-  Layout="Shared/_Layout.cshtml";
-}
-<ul id="dropdown1" class="dropdown-content">
+<html>
+<head>
+  <title>Hermes TSP</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/Content/css/styles.css">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+</head>
+<body>
+  <ul id="dropdown1" class="dropdown-content">
     <li><a href="/profile/@Model["customer"].GetId()/newtrip">New Trip</a></li>
     <li class="divider"></li>
     <li><a href="/profile/@Model["customer"].GetId()/trips">Past Trips</a></li>
-</ul>
-<nav>
+  </ul>
+  <nav>
     <div class="nav-wrapper">
-        <a href="/profile/index/@Model["customer"].GetId()" class="brand-logo">Cabrador</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="/profile/@Model["customer"].GetId()/dogs">Our Dogs</a></li>
-            <li><a href="/profile/@Model["customer"].GetId()">Your Profile</a></li>
-            <li><a href="/">Log Out</a></li>
-        </ul>
+      <a href="/profile/index/@Model["customer"].GetId()" class="brand-logo">Cabrador</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="/profile/@Model["customer"].GetId()/dogs">Our Dogs</a></li>
+        <li><a href="/profile/@Model["customer"].GetId()">Your Profile</a></li>
+        <li><a href="/">Log Out</a></li>
+      </ul>
     </div>
-</nav>
+  </nav>
+  <div class="row">
 
-<h3>Starting Point: @Model["trip"].GetStartPoint()</h3>
-<h3>Destination: @Model["trip"].GetDestination()</h3>
-<h3>Price: @Model["trip"].GetPrice()</h3>
-<h3>Miles: @Model["trip"].GetMiles()</h3>
-<h3>Date: @Model["trip"].GetDate()</h3>
-<h3>Dog: <a href="/profile/@Model["customer"].GetId()/dogs/@Model["dog"].GetId()"> @Model["dog"].GetName()</a></h3>
-<h3>Driver: @Model["driver"].GetName()</h3>
+    <div class="col s6">
+      <h4>Starting Point: @Model["trip"].GetStartPoint()</h4>
+      <h4>Destination: @Model["trip"].GetDestination()</h4>
+      <h4>Price: @Model["trip"].GetPrice()</h4>
+      <h4>Miles: @Model["trip"].GetMiles()</h4>
+      <h4>Date: @Model["trip"].GetDate()</h4>
+      <h4>Dog: <a href="/profile/@Model["customer"].GetId()/dogs/@Model["dog"].GetId()"> @Model["dog"].GetName()</a></h4>
+      <h4>Driver: @Model["driver"].GetName()</h4>
+
+      <div id="waypoints"><h1>Edit waypoints</h1>
+        @* <input type="text" placeholder="Start" id="start" value="1202 third ave seattle, wa">
+        <input type="text" placeholder="Destination" id="end" value="301 e pike st seattle, wa"> *@
+        <input id="start" value ="@Model["trip"].GetStartPoint()">
+        <input id="end" value= "@Model["trip"].GetDestination()">
+      </div>
+      <a href="#" onclick="javascript:calcRoute()">Show my route</a>
+
+    </div>
+    <div class="col s6">
+
+      <div id="map"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-CLyq0FM7DgF4DjKgqejE1KSxS9P0Tm8&callback=mapLoaded"
+      async defer></script>
+    </div>
+
+  </div>
+
+
+
+
+    @* <div id="discription"></div> *@
+
+    <script src="/Content/js/scripts.js"></script>
+
+</body>
+</html>

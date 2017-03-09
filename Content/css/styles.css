@@ -1,5 +1,5 @@
-#discription h1, .discription_item, #waypoints h1, #waypoints a, #fork a{
-    display: block;
+/*#discription h1, .discription_item, #waypoints h1, #waypoints a, #fork a{
+    display: none;
     padding: 10px 10px 0px 10px;
     font-size: 18px;
 }
@@ -13,14 +13,16 @@
     margin: 0px;
     color: green;
     letter-spacing: 10px;
-}
+}*/
 
 #map{
-    width: 50%;
-    height: 100%;
-    float:right;
-}
+    width: 90%;
+    height: 75%;
+    margin-top: 30px;
+    margin-left: 50px;
 
+}
+/*
 #discription{
     width: 50%;
     float:left;
@@ -42,10 +44,14 @@
     display: block;
     font-size: 18px;
     width: 90%;
-}
+}*/
 
 #waypoints a, #waypoints a:visited{
     font-weight: bold;
     font-size: 20px;
     color: blue;
+}
+
+#waypoints {
+  display: none;
 }
