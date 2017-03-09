@@ -2,25 +2,39 @@
   Layout="Shared/_Layout.cshtml";
 }
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="/profile/@Model.GetId()/newtrip">New Trip</a></li>
-    <li class="divider"></li>
-    <li><a href="/profile/@Model.GetId()/trips">Past Trips</a></li>
+  <li><a href="/profile/@Model.GetId()/newtrip">New Trip</a></li>
+  <li class="divider"></li>
+  <li><a href="/profile/@Model.GetId()/trips">Past Trips</a></li>
 </ul>
 <nav>
-    <div class="nav-wrapper">
-        <a href="/profile/index/@Model.GetId()" class="brand-logo">Cabrador</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="/profile/@Model.GetId()/dogs">Our Dogs</a></li>
-            <li><a href="/profile/@Model.GetId()">Your Profile</a></li>
-            <li><a href="/">Log Out</a></li>
-        </ul>
-    </div>
+  <div class="nav-wrapper">
+    <a href="/profile/index/@Model.GetId()" class="brand-logo">Cabrador</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Trips<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a href="/profile/@Model.GetId()/dogs">Our Dogs</a></li>
+      <li><a href="/profile/@Model.GetId()">Your Profile</a></li>
+      <li><a href="/">Log Out</a></li>
+    </ul>
+  </div>
 </nav>
 
-<h1>@Model.GetName()</h1>
-<h1>@Model.GetEmail()</h1>
-<h1><img src='@Model.GetPhoto()'></h1>
+<div class="row">
+  <img id="photo" src='@Model.GetPhoto()'>
 
+  <div class="body">
 
-  <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>
+    <div class="space">
+      <h2>Name: @Model.GetName()</h2>
+    </div>
+
+    <div class="space">
+      <h2>Email: @Model.GetEmail()</h2>
+    </div>
+
+    <div class="space">
+
+      <a href="/profile/edit/@Model.GetId()" class="btn"> Edit Your Profile</a>
+    </div>
+  </div>
+
+</div>

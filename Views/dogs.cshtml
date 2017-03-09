@@ -18,7 +18,7 @@
         </ul>
     </div>
 </nav>
-
+@*
 <div class="puppies">
   <div class="carousel">
     <p class="carousel-item"><img class="carimg" src="/Content/img/Alex.jpg">Alex</p>
@@ -28,16 +28,31 @@
     <p class="carousel-item"><img class="carimg" src="/Content/img/Bella.jpg">Bella</p>
   </div>
 
-</div>
+</div> *@
 
 <div class="doggies">
 @if (Model["dogs"].Count != 0)
 {
-  <ul>
+
+  <div class="row dogrow">
     @foreach (var dog in @Model["dogs"])
     {
-      <h4 class="dogs"><a href="/profile/@Model["customer"].GetId()/dogs/@dog.GetId()">@dog.GetName()</a></h4>
-    }
-  </ul>
+
+
+   <div class="col s6 m2">
+     <div class="card">
+       <div class="card-image puppy">
+         <img class="puppy" src='@dog.GetPhoto()'>
+       </div>
+       <div class="card-content">
+        <h5>@dog.GetName()</h5>
+       </div>
+       <div class="card-action">
+         <a href="/profile/@Model["customer"].GetId()/dogs/@dog.GetId()">View Profile</a>
+       </div>
+     </div>
+   </div>
+ }
+ </div>
 }
 </div>

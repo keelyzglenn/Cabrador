@@ -91,10 +91,9 @@
 .loginform {
   border: black solid thin;
   margin: 50px;
-
 }
 
-#loginbtn {
+.loginbtn {
   margin-bottom: 20px;
 }
 
@@ -121,8 +120,7 @@
 
 .doggies {
   text-align: center;
-  padding-top: 400px;
-  padding-left: 240px;
+  padding-top: 100px;
 }
 
 body {
@@ -162,7 +160,12 @@ font-size: 70px !important;
 #dashboard2pic {
   width: 100%;
   margin-top: 0px;
+  height: 800px;
 }
+
+
+.puppy {
+  height: 270px;
 
 .caret {
   margin-top: 20px !important;
@@ -188,6 +191,40 @@ font-size: 70px !important;
 .dogicon {
   height: 60px;
 }
+
+
+.signupform {
+  border: black solid thin;
+  margin: 50px;
+}
+
+
+#photo {
+  float: left;
+  margin: 30px;
+}
+
+
+.body {
+  float: right;
+}
+
+
+.space {
+  margin-top: 70px;
+}
+
+
+.card {
+  text-align: center;
+}
+
+
+.adopted {
+  margin: 100px;
+  text-align: center;
+}
+
 
 
 font-family: 'Open Sans', sans-serif;
