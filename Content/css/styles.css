@@ -121,8 +121,7 @@
 
 .doggies {
   text-align: center;
-  padding-top: 400px;
-  padding-left: 240px;
+  padding-top: 100px;
 }
 
 body {
@@ -162,6 +161,10 @@ font-size: 70px !important;
 #dashboard2pic {
   width: 100%;
   margin-top: 0px;
+}
+
+.puppy {
+  height: 270px;
 }
 
 
