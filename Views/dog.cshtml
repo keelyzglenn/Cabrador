@@ -24,7 +24,10 @@
 <h3><img src='@Model["dog"].GetPhoto()'></h3>
 <h3>@Model["dog"].GetShelter()</h3>
 <h3>@Model["dog"].AdoptStatus()</h3>
-<form action="/profile/@Model["customer"].GetId()/dogs/@Model["dog"].GetId()/adopt" method="post">
-         <input type="hidden" name="_method" value="PATCH">
-      <button type="submit" class="btn">Adopt this dog!</button>
-</form>
+@if(@Model["dog"].AdoptStatus() != "This dog already has their forever home")
+{
+  <form action="/profile/@Model["customer"].GetId()/dogs/@Model["dog"].GetId()/adopt" method="post">
+           <input type="hidden" name="_method" value="PATCH">
+        <button type="submit" class="btn">Adopt this dog!</button>
+  </form>
+}

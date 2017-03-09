@@ -19,16 +19,18 @@
     </div>
 </nav>
 
-<h2>IT WORKED</h2>
+<div class="puppies">
+  <div class="carousel">
+    <p class="carousel-item"><img class="carimg" src="/Content/img/Alex.jpg">Alex</p>
+    <p class="carousel-item"><img class="carimg" src="/Content/img/Allie.jpg">Allie</p>
+    <p class="carousel-item"><img class="carimg" src="/Content/img/Bebe.jpg">Bebe</p>
+    <p class="carousel-item"><img class="carimg" src="/Content/img/Bowie.jpg">Bowie</p>
+    <p class="carousel-item"><img class="carimg" src="/Content/img/Bella.jpg">Bella</p>
+  </div>
 
-<div class="carousel">
-  <a class="carousel-item" href="#one!"><img src="/Content/img/Alex.jpg"></a>
-  <a class="carousel-item" href="#two!"><img src="/Content/img/Allie.jpg"></a>
-  <a class="carousel-item" href="#three!"><img src="/Content/img/Bebe.jpg"></a>
-  <a class="carousel-item" href="#four!"><img src="/Content/img/Bowie.jpg"></a>
-  <a class="carousel-item" href="#five!"><img src="/Content/img/Bella.jpg"></a>
 </div>
 
+<div class="doggies">
 @if (Model["dogs"].Count != 0)
 {
   <ul>
@@ -38,3 +40,4 @@
     }
   </ul>
 }
+</div>
