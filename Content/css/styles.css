@@ -25,7 +25,7 @@
   /*text-align: justify;*/
 }
 
-img {
+#dog {
   max-height: 700px;
   margin-top: 20px;
 }
@@ -72,11 +72,17 @@ img {
   margin-right: 40px;
 }
 
-.login {
-  background-image: url("/Content/img/icons/dashboard.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  max-height: 800px;
-  max-width: 1000px;
+#dashboard {
+  height: 800px;
+  width: 100%;
+}
+
+.loginform {
+  border: black solid thin;
+  margin: 50px;
+
+}
+
+#loginbtn {
+  margin-bottom: 20px;
 }
