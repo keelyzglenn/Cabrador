@@ -81,11 +81,11 @@ namespace Cabrador
         return View["dog.cshtml", model];
       };
 
-      Patch["dogs/adopt/{id}"] = parameters => {
-        Dog adoptedDog = Dog.Find(parameters.id);
+      Patch["/profile/{user_id}/dogs/{dog_id}/adopt"] = parameters => {
+        Dog adoptedDog = Dog.Find(parameters.dog_id);
         adoptedDog.MarkAdopted();
         Dictionary<string, object> model = new Dictionary<string, object>();
-        Customer SelectedCustomer = Customer.Find(parameters.id);
+        Customer SelectedCustomer = Customer.Find(parameters.user_id);
         model.Add("dog", adoptedDog);
         model.Add("customer", SelectedCustomer);
         return View["adopted.cshtml", model];
