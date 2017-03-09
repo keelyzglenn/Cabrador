@@ -34,6 +34,7 @@
 #dog {
   max-height: 700px;
   margin-top: 20px;
+  width: 80%;
 }
 
 .text {
@@ -56,15 +57,12 @@
   padding-left: 40px;
 }
 
-.about p {
-  font-size: 18px;
-}
 .shelter {
   text-align: justify;
 }
 
 .dogcar {
-  max-width: 700px;
+  width: 100%
   float: right;
 }
 
@@ -200,14 +198,10 @@ font-size: 70px !important;
 
 
 #photo {
-  float: left;
-  margin: 30px;
+  margin-top: 60px;
+
 }
 
-
-.body {
-  float: right;
-}
 
 
 .space {
