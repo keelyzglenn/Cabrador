@@ -1,0 +1,51 @@
+#discription h1, .discription_item, #waypoints h1, #waypoints a, #fork a{
+    display: block;
+    padding: 10px 10px 0px 10px;
+    font-size: 18px;
+}
+
+.discription_item b{
+    color: green;
+}
+
+#discription h1, #waypoints h1{
+    font-size: 30px;
+    margin: 0px;
+    color: green;
+    letter-spacing: 10px;
+}
+
+#map{
+    width: 50%;
+    height: 100%;
+    float:right;
+}
+
+#discription{
+    width: 50%;
+    float:left;
+    margin-top: 50px;
+}
+
+#waypoints, #fork{
+    width: 50%;
+    float:left;
+}
+
+#fork{
+    position: absolute;
+    bottom: 10px;
+}
+
+#waypoints input{
+    margin: 10px 10px 0px 10px;
+    display: block;
+    font-size: 18px;
+    width: 90%;
+}
+
+#waypoints a, #waypoints a:visited{
+    font-weight: bold;
+    font-size: 20px;
+    color: blue;
+}
