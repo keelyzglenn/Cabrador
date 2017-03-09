@@ -20,12 +20,14 @@
     </div>
   </nav>
 
+<div class="row">
+</div>
   <div class="row" id="tripform">
     <form action="/profile/@Model["customer"].GetId()/trip_confirm" method='post' >
       <div class="row">
         <div class="input-field">
           <i class="material-icons prefix">room</i>
-          <input id="icon_prefix" type="text" class="validate" name="start-address" id="start" required>
+          <input id="icon_prefix" type="text" class="validate formy" name="start-address" id="start" required>
           <label for="icon_prefix">Starting Address</label>
         </div>
         <div class="input-field">
@@ -56,6 +58,8 @@
       <button type='submit' class="btn">Book this trip</button>
     </form>
   </div>
+</div>
+
 
     <!-- My functions -->
     <script src="/Content/js/scripts.js"></script>
