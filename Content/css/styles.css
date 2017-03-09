@@ -91,10 +91,9 @@
 .loginform {
   border: black solid thin;
   margin: 50px;
-
 }
 
-#loginbtn {
+.loginbtn {
   margin-bottom: 20px;
 }
 
@@ -161,6 +160,7 @@ font-size: 70px !important;
 #dashboard2pic {
   width: 100%;
   margin-top: 0px;
+  height: 800px;
 }
 
 
@@ -178,7 +178,11 @@ font-size: 70px !important;
 
 #tripform {
   margin-top: 70px;
+}
 
+.signupform {
+  border: black solid thin;
+  margin: 50px;
 }
 
 
