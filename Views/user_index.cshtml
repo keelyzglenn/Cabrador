@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Cabrador</title>
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-        <link rel="stylesheet" href="/Content/css/styles.css">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-        <script src="/Content/js/scripts.js" charset="utf-8"></script>
+@{
+    Layout="Shared/_Layout.cshtml";
+}
 
-    </head>
-    <body>
       <ul id="dropdown1" class="dropdown-content">
           <li><a href="/profile/@Model.GetId()/newtrip">New Trip</a></li>
           <li class="divider"></li>
@@ -44,5 +34,3 @@
             </div>
 
         </div>
-    </body>
-</html>

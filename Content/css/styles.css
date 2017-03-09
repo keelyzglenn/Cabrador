@@ -26,10 +26,22 @@
   background-size: cover;
   text-align: justify;
   background-attachment: fixed;
+
+  height: 540px;
+  /*text-align: justify;*/
 }
 
-.chunk1 {
-  float:right;
+img {
+  max-height: 700px;
+  margin-top: 20px;
+}
+
+.text {
+  text-align: center;
+}
+
+.icons {
+  max-height: 100px;
 }
 
 #howtext {
@@ -38,7 +50,41 @@
 
 #how {
   text-align: center;
+}
 
+.about {
+  padding-left: 40px;
+  padding-top: 100px;
+
+}
+
+.shelter {
+  text-align: justify;
+}
+
+.dogcar {
+  max-width: 800px;
+  float: right;
+}
+
+.middlerow {
+  margin: 150px;
+}
+
+.contact {
+  margin:
+  text-align: right;
+  margin-top: 150px;
+  margin-right: 40px;
+}
+
+.login {
+  background-image: url("/Content/img/icons/dashboard.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-height: 800px;
+  max-width: 1000px;
 }
 
 .carimg {
