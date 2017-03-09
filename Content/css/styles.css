@@ -102,7 +102,7 @@ img {
   text-align: right;
 }
 
-.carousel, .initialized {
+.carousel{
   padding-top:700px !important;
   padding-bottom: -200px !important;
 
@@ -156,6 +156,19 @@ font-size: 70px !important;
 #dashboard2pic {
   width: 100%;
   margin-top: 0px;
+}
+
+.caret {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.select-wrapper {
+  padding: 4px;
+}
+
+#tripform {
+  margin-top: 70px;
 }
 
 
