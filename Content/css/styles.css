@@ -108,7 +108,7 @@
   text-align: right;
 }
 
-.carousel, .initialized {
+.carousel{
   padding-top:700px !important;
   padding-bottom: -200px !important;
 
@@ -163,8 +163,22 @@ font-size: 70px !important;
   margin-top: 0px;
 }
 
+
 .puppy {
   height: 270px;
+
+.caret {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.select-wrapper {
+  padding: 4px;
+}
+
+#tripform {
+  margin-top: 70px;
+
 }
 
 
