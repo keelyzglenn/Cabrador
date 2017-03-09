@@ -54,6 +54,7 @@
 .carousel, .initialized {
   padding-top:700px !important;
   padding-bottom: -200px !important;
+
 }
 
 .puppies {
@@ -63,10 +64,41 @@
 
 .doggies {
   text-align: center;
+  padding-top: 400px;
+  padding-left: 240px;
 }
-/*
-ul h4 {
-   width: 28%;
-   margin: .5em 2%;
-   float:left;
-}*/
+
+.brand-logo {
+font-family: 'Righteous', cursive;
+font-size: 70px !important;
+}
+
+.nav-wrapper {
+  background-color: #698CA8;
+  padding-top: 28px;
+  height: 100px !important;
+}
+
+.welcome {
+  margin-top: 30px;
+}
+
+.trot {
+  height: 870px;
+  width: 100%;
+}
+
+
+font-family: 'Open Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-family: 'Cabin', sans-serif;
+font-family: 'Poiret One', cursive;
+font-family: 'Patrick Hand SC', cursive;
+font-family: 'Dekko', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Cabin Sketch', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-family: 'Kranky', cursive;
+font-family: 'Megrim', cursive;
+font-family: 'Faster One', cursive;
