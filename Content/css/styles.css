@@ -54,17 +54,22 @@ img {
 
 .about {
   padding-left: 40px;
-  padding-top: 100px;
-
 }
 
+.about p {
+  font-size: 18px;
+}
 .shelter {
   text-align: justify;
 }
 
 .dogcar {
-  max-width: 800px;
+  max-width: 700px;
   float: right;
+}
+
+#about {
+  margin-top: 0px;
 }
 
 .middlerow {
@@ -114,6 +119,11 @@ img {
   padding-left: 240px;
 }
 
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+}
+
 .brand-logo {
 font-family: 'Righteous', cursive;
 font-size: 70px !important;
@@ -130,8 +140,22 @@ font-size: 70px !important;
 }
 
 .trot {
-  height: 870px;
+  margin-top: 0px;
+  height: 800px;
   width: 100%;
+}
+
+#mainpic {
+  width: 80%;
+}
+
+.dog {
+  border-bottom: 2px solid black;
+}
+
+#dashboard2pic {
+  width: 100%;
+  margin-top: 0px;
 }
 
 
