@@ -14,23 +14,26 @@
 </nav>
 
 <div class="login">
-  <img src="/Content/img/icons/dashboard.jpeg"/>
+ <img id="dashboard" src="/Content/img/icons/dashboard.jpeg" alt="" />
 </div>
-
 <div class="row">
-    <form action="/welcome/returning" method="post" class="col s12">
+<div class="col s1">
+
+</div>
+    <form action="/welcome/returning" method="post" class="col s10 loginform">
+        <h3 id="returninguser">Returning User</h3>
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s10">
                 <input id="customer-email" name="customer-email" type="email" class="validate">
                 <label for="customer-email">Email</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s10">
                 <input id="customer-password" type="password" name="customer-password" class="validate">
                 <label for="customer-password">Password</label>
             </div>
         </div>
-        <button type="submit" name="button">Login</button>
+        <button id="loginbtn" type="submit" name="button" class="waves-effect waves-light btn">Login</button>
     </form>
 </div>

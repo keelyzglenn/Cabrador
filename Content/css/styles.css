@@ -31,7 +31,7 @@
   /*text-align: justify;*/
 }
 
-img {
+#dog {
   max-height: 700px;
   margin-top: 20px;
 }
@@ -54,17 +54,22 @@ img {
 
 .about {
   padding-left: 40px;
-  padding-top: 100px;
-
 }
 
+.about p {
+  font-size: 18px;
+}
 .shelter {
   text-align: justify;
 }
 
 .dogcar {
-  max-width: 800px;
+  max-width: 700px;
   float: right;
+}
+
+#about {
+  margin-top: 0px;
 }
 
 .middlerow {
@@ -78,13 +83,19 @@ img {
   margin-right: 40px;
 }
 
-.login {
-  background-image: url("/Content/img/icons/dashboard.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  max-height: 800px;
-  max-width: 1000px;
+#dashboard {
+  height: 800px;
+  width: 100%;
+}
+
+.loginform {
+  border: black solid thin;
+  margin: 50px;
+
+}
+
+#loginbtn {
+  margin-bottom: 20px;
 }
 
 .carimg {
@@ -97,7 +108,7 @@ img {
   text-align: right;
 }
 
-.carousel, .initialized {
+.carousel{
   padding-top:700px !important;
   padding-bottom: -200px !important;
 
@@ -110,8 +121,12 @@ img {
 
 .doggies {
   text-align: center;
-  padding-top: 400px;
-  padding-left: 240px;
+  padding-top: 100px;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
 }
 
 .brand-logo {
@@ -130,8 +145,40 @@ font-size: 70px !important;
 }
 
 .trot {
-  height: 870px;
+  margin-top: 0px;
+  height: 800px;
   width: 100%;
+}
+
+#mainpic {
+  width: 80%;
+}
+
+.dog {
+  border-bottom: 2px solid black;
+}
+
+#dashboard2pic {
+  width: 100%;
+  margin-top: 0px;
+}
+
+
+.puppy {
+  height: 270px;
+
+.caret {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.select-wrapper {
+  padding: 4px;
+}
+
+#tripform {
+  margin-top: 70px;
+
 }
 
 
