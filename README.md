@@ -142,3 +142,23 @@ _C#, MSSQL_
 *Available under an MIT License*
 
 Copyright (c) 2017 **_Katy Daviscourt, Cassie Musolf, Caitlin Hines, Keely Glenn_**
+
+
+
+To do:
+
+hide adopt button if already adopted
+past trips: row
+feature dog images go to dog link
+no nav bar in shared lay out
+layout thing for all views
+
+
+
+1 team:
+adopt button
+carousel
+
+2 team:
+layout and html things
+index
