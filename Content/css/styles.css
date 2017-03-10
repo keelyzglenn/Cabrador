@@ -63,8 +63,9 @@
 
 .dogcar {
   width: 100%
-  float: right;
 }
+
+
 
 #about {
   margin-top: 0px;
@@ -189,7 +190,6 @@ font-size: 70px !important;
 .dogicon {
   height: 60px;
 }
-
 
 .signupform {
   border: black solid thin;
